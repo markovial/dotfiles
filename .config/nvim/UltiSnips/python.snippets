@@ -1,0 +1,30 @@
+snippet vcom "visual comment"
+"""
+${1:${VISUAL:text}}
+"""
+endsnippet
+
+snippet fold "fold"
+# DEF Start : ${1:FOLD NAME} {{{
+
+# }}} DEF End : $1
+endsnippet
+
+snippet vfold "visual fold"
+# DEF Start : ${1:FOLD NAME} {{{
+
+${2:${VISUAL:text}}
+
+# }}} DEF End : $1
+endsnippet
+
+snippet folddef "insert def block"
+# Def : ${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}} {{{
+def $1():
+
+	
+
+# }}}
+endsnippet
+
+

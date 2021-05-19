@@ -1,0 +1,304 @@
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# VARIABLE DECLARATIONS --------------------------------------------------- {{{
+
+set $mod Mod1
+
+set $terminal              alacritty
+set $file_explorer         ranger
+set $file_explorer_gui     nautilus
+set $internet_browser      firefox
+set $process_manager       glances
+set $calendar              calcurse
+set $music_player          ncmpcpp
+set $notification_manager  dunst
+set $bluetooth_manager     bluetoothctl
+
+set $shutdown sudo -A shutdown -h now
+set $reboot sudo -A reboot
+set $cur_most_edited ~/Documents/latex/tech_stuff/computer_networks/document.tex
+set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
+
+set $wallpaper --bg-fill /home/ishan/Images/Wallpapers/181616_blank.png
+#set $wallpaper --bg-scale /home/ishan/Images/Wallpapers/Anime/11926.jpg
+#set $wallpaper --bg-scale /home/ishan/Images/Wallpapers/Abstract/digital-art-wallpapers-25200-9616808.jpg
+
+#set $wallpaper --bg-scale /home/ishan/Images/Wallpapers/Digital_Artists/Andreas_Rocha/andreas-rocha-thepathofwisdom2.jpg
+
+#set $wallpaper killall back4.sh ; ./scripts/shell/back4.sh 0.05 /home/ishan/Images/Wallpapers/gif/9WgJg0G.gif
+#set $wallpaper killall back4.sh ; ./scripts/shell/back4.sh 0.05 /home/ishan/Images/Wallpapers/gif/6XxLQkY.gif
+#set $wallpaper killall back4.sh ; ./scripts/shell/back4.sh 0.01 /home/ishan/Downloads/post_apoc.gif
+
+# fire music term folder git
+
+set $workspace1 "1"
+set $workspace2 "2"
+set $workspace3 "3"
+set $workspace4 "4"
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9" 
+
+#font pango:Hack-Regular 20
+font pango:Cantarell-Regular 20
+
+# }}}
+
+# WORKSPACE SETTINGS ------------------------------------------------------ {{{
+
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+
+# }}}
+
+# RUN ON STARTUP ---------------------------------------------------------- {{{
+
+# merge Xresources
+exec_always "xrdb -merge $HOME/.Xresources"
+
+# disable caps_lock key (rebound to escape)
+exec_always --no-startup-id xmodmap -e "clear lock"
+exec_always --no-startup-id xmodmap -e "keycode 66=Escape"
+
+# run picom (compton) compositor (transparency)
+exec --no-startup-id pkill picom ; picom
+
+# apply wallpaper
+exec_always --no-startup-id feh $wallpaper 
+
+# run autokey
+# i now run it only when I need to type german
+#exec --no-startup-id autokey-gtk
+
+# run music player daemon (mpd)
+exec --no-startup-id mpd
+
+# run / refresh notification daemon
+exec_always --no-startup-id pkill dunst ; dunst
+
+# start up bluetooth
+exec --no-startup-id $terminal -e $bluetooth_manager power on
+
+# run / refresh status bar
+exec_always --no-startup-id pkill polybar ; polybar top ;
+
+# run vpn
+#exec /opt/piavpn/bin/pia-client
+exec_always --no-startup-id piactl background enable ; piactl connect
+
+# }}}
+
+# VISUAL / AESTHETICS ----------------------------------------------------- {{{
+
+# disable title bars , required for i3 gaps
+for_window [class="^.*"] border pixel 0
+
+# command for window class : xprop
+#for_window [class="Tilix"] border pixel 30
+for_window [class="Tilda"] border pixel 0
+for_window [class="Dunst"] border pixel 0
+
+for_window [class="privateinternetaccess"] border pixel 0
+
+for_window [window_role="GtkFileChooserDialog"] border pixel 1
+for_window [window_role="GtkFileChooserDialog"] resize set 800 600
+for_window [window_role="GtkFileChooserDialog"] move position center
+
+#for_window [class="Anki"] border pixel 5
+
+for_window [window_role="browser"] move workspace $workspace1
+#for_window [title="firefox"] move workspace $workspace1
+#for_window [class="firefox"] move workspace $workspace1
+#for_window [class="firefox"] border pixel 0
+
+#for_window [title="Nautilus"] move workspace $workspace3
+#for_window [class="Nautilus"] move workspace $workspace3
+
+# Auto no inner + outer gaps when only 1 window open
+#smart_gaps on 
+
+# Auto no border when only 1 window open
+#smart_borders on 
+
+# gaps between windows
+gaps inner 15
+
+# gaps from screen to window
+gaps outer 8
+
+
+# useful tool : https://thomashunter.name/i3-configurator/
+
+set_from_resource $bdr-color color0 #000000
+set_from_resource $bdr-color1 color1 #000000
+
+#set $bdr-color          #181616E6
+#set $bdr-color          #181616
+
+
+# colour of             # border   # bground  # text  # indicator # child_border
+client.focused          $bdr-color1 $bdr-color1 $bdr-color1 $bdr-color1 $bdr-color1
+#client.focused          $bdr-color $bdr-color $bdr-color $bdr-color $bdr-color
+client.focused_inactive $bdr-color $bdr-color $bdr-color $bdr-color $bdr-color
+client.unfocused        $bdr-color $bdr-color $bdr-color $bdr-color $bdr-color
+client.urgent           $bdr-color $bdr-color $bdr-color $bdr-color $bdr-color
+client.placeholder      $bdr-color $bdr-color $bdr-color $bdr-color $bdr-color
+client.background      $bdr-color
+
+# Bar color definitions
+#set $bg-color          #2f343f
+#set $inactive-bg-color   #2f343f
+#set $text-color          #f3f4f5
+#set $inactive-text-color #676E7D
+#set $urgent-bg-color #E53935
+
+
+
+ # }}}
+
+# MOVEMENT ---------------------------------------------------------------- {{{
+
+bindsym $mod+Return exec $terminal
+bindsym $mod+Shift+Return  split toggle
+bindsym $mod+Shift+r  restart
+
+# ----
+# HJKL
+# ----
+
+bindsym $mod+h        focus left
+bindsym $mod+j        focus down
+bindsym $mod+k        focus up
+bindsym $mod+l        focus right
+
+bindsym $mod+Shift+h  move left
+bindsym $mod+Shift+j  move down
+bindsym $mod+Shift+k  move up
+bindsym $mod+Shift+l  move right
+
+bindsym $mod+Ctrl+h   resize shrink width  1 px or 1 ppt
+bindsym $mod+Ctrl+j   resize grow   height 1 px or 1 ppt
+bindsym $mod+Ctrl+k   resize shrink height 1 px or 1 ppt
+bindsym $mod+Ctrl+l   resize grow   width  1 px or 1 ppt
+
+#bindsym $mod+u        focus left
+#bindsym $mod+i        focus down
+#bindsym $mod+o        focus up
+#bindsym $mod+p        focus right
+
+bindsym $mod+m       exec --no-startup-id $terminal -e $music_player
+bindsym $mod+i       exec --no-startup-id $terminal -e $process_manager
+bindsym $mod+c       exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null -theme rofi_theme"
+bindsym $mod+Shift+c exec --no-startup-id $terminal -e $calendar
+#bindsym $mod+w       exec --no-startup-id $terminal -e $file_explorer
+#bindsym $mod+Shift+w exec $file_explorer_gui
+bindsym $mod+Shift+m exec --no-startup-id $terminal -e tilda > /dev/null 2>&1
+bindsym $mod+b       exec $internet_browser
+bindsym $mod+Shift+b exec --no-startup-id $terminal -e $bluetooth_manager
+bindsym $mod+d       exec --no-startup-id rofi -show drun -theme rofi_theme
+
+bindsym $mod+q       kill
+
+bindsym $mod+t        exec --no-startup-id notify-send "  : $( date "+%R : %d/%m/%y %a %b ")"
+#bindsym $mod+p        exec notify-send "Now Playing ♫" "$(mpc current)"
+
+
+bindsym $mod+f        fullscreen toggle 
+
+#bindsym $mod+Ctrl+a   gaps inner current plus  1
+#bindsym $mod+Ctrl+s   gaps inner current minus 1
+#bindsym $mod+Ctrl+d   gaps outer current plus  1
+#bindsym $mod+Ctrl+f   gaps outer current minus 1
+
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+#bindsym $mod+h split h
+#bindsym $mod+v split v
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
+#bindsym $mod+a focus parent
+#bindsym $mod+d focus child
+
+
+
+# }}}
+
+# FLOATING  --------------------------------------------------------------- {{{ 
+# Use Mouse+$mod to drag floating windows to their wanted position
+#floating_modifier $mod
+
+#bindsym $mod+space focus mode_toggle
+#bindsym $mod+Shift+space floating toggle
+
+# }}}
+
+# KEYBINDINGS ------------------------------------------------------------- {{{
+
+# For advancing forward/backward in an mpd song
+
+bindsym $mod+less          exec --no-startup-id mpc seek -10
+bindsym $mod+greater       exec --no-startup-id mpc seek +10
+bindsym $mod+Shift+less    exec --no-startup-id mpc prev
+bindsym $mod+Shift+greater exec --no-startup-id mpc next
+
+bindsym $mod+plus          exec --no-startup-id pulsemixer --change-volume +1
+bindsym $mod+minus         exec --no-startup-id pulsemixer --change-volume -1
+
+bindsym $mod+Shift+plus          exec --no-startup-id xbacklight +10
+bindsym $mod+Shift+minus         exec --no-startup-id xbacklight -10
+
+bindsym $mod+space         exec --no-startup-id mpc toggle && notify-send "  : $(mpc current)"
+
+
+
+#bindsym $mod+p exec --no-startup-id notify-send "$(./scripts/shell/check_battery.sh)"
+
+bindsym $mod+n        exec $terminal -e vim ~/Documents/stuff.txt
+bindsym $mod+Shift+n  exec $terminal -e vim $cur_most_edited
+
+bindsym $mod+v       exec --no-startup-id notify-send "  : $(piactl get connectionstate) ($(piactl get region)) "
+
+# connect command also reconnects
+bindsym $mod+Shift+v exec --no-startup-id piactl connect ; exec --no-startup-id notify-send "  : $(piactl get connectionstate) ($(piactl get region)) "
+
+bindsym $mod+w exec --no-startup-id nmcli networking on      ; exec --no-startup-id notify-send " Networking On "
+bindsym $mod+Shift+w exec --no-startup-id nmcli networking off ; exec --no-startup-id notify-send " Networking Off "
+
+
+# Show selection:
+bindsym $mod+Insert		exec --no-startup-id notify-send "📋 Clipboard contents:" "$(xclip -o -selection clipboard)"
+#
+#
+##bindsym $mod+Pause
+
+#bindsym $mod+Shift+Escape	exec --no-startup-id prompt "Exit i3?" "i3 exit"
+
+
+
+
+
+
+# }}}
+

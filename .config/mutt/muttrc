@@ -1,0 +1,45 @@
+# John is a random name
+# imap and smtp ports are for gmail , other providers might use different ports
+# however if you notice IMAP 143 , SMTP 25 I encourage you to not use them since
+# those ports number are for unencrypted communications
+
+source color.muttrc
+
+set from = "john@gmail.com"
+set realname = "John"
+set imap_user = "john@gmail.com"
+
+# i dont think it is a particularly good idea to save your email password here
+# set imap_pass = ""
+
+# IMAP SETTINGS
+
+#set folder = "imaps://john@gmail.com@imap.gmail.com:993"
+
+# if imap_user is set
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set postponed ="+[Google Mail]/Drafts"
+set trash = "+[Google Mail]/Trash"
+
+# SMTP SETTINGS
+set smtp_url = "smtp://john@smtp.gmail.com:587/"
+
+# LOCAL FOLDERS FOR CACHED HEADERS AND CERTIFICATES
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+# SECURING
+set move = no  #Stop asking to "move read messages to mbox"!
+set imap_keepalive = 900
+
+# Sort by newest conversation first.
+set sort = reverse-threads
+set sort_aux = last-date-received
+
+# Set editor to create new email
+set editor='vim'
+
+set postponed = "imaps://john@smtp.gmail.com:587"
+

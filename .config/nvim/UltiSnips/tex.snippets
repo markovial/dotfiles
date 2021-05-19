@@ -1,0 +1,422 @@
+snippet begin "begin end pair"
+\begin{$1}
+\end{$1}
+endsnippet
+
+snippet sec "create section"
+% SECTION : $2 {{{
+\section{${1:SECTION NAME}}
+\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+\parindent=0em
+\lettrine[lines=3, findent=3pt, nindent=0pt]{T}{his} 
+
+\sectionend
+% }}} END SECTION : $2
+endsnippet
+snippet ssec "create subsection"
+% 	SUB-SECTION : $2 {{{
+\subsection{${1:SUB-SECTION NAME}}
+\label{ssec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+
+\subsectionend
+% }}} END SUB-SECTION : $2
+endsnippet
+snippet sssec "create subsubsection"
+% 		SUB-SUB-SECTION : $2 {{{
+\subsubsection{${1:SUB-SUB-SECTION NAME}}
+\label{sssec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+
+$0
+
+\subsubsectionend
+% }}} END SUB-SUB-SECTION : $2
+endsnippet
+
+snippet it "italic"
+\textit{$1}
+endsnippet
+snippet bf "bold"
+\textbf {$1}
+endsnippet
+snippet bfit "bold and italic"
+\textbf{\textit{$1}}
+endsnippet
+snippet vbf "visual bold"
+\textbf{${1:${VISUAL:text}}}
+endsnippet
+snippet vit "visual italic"
+\textit{${1:${VISUAL:default text}}}
+endsnippet
+snippet vbfit "visual bold and italic"
+\textbf{\textit{${1:${VISUAL:text}}}}
+endsnippet
+
+snippet enum "enumerated list"
+
+% ENUMERATE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
+
+\begin{enumerate}[noitemsep]
+
+	\item $0
+
+\end{enumerate}
+
+% }}} END-ENUMERATE : $1
+endsnippet
+snippet enumerate "enumerated list"
+
+% ENUMERATE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
+
+\begin{enumerate}[noitemsep]
+
+	\item $0
+
+\end{enumerate}
+
+% }}} END-ENUMERATE : $1
+endsnippet
+snippet venumerate "enumerated list"
+
+% ENUMERATE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
+
+\begin{enumerate}[noitemsep]
+
+${VISUAL:text}
+
+\end{enumerate}
+
+% }}} END-ENUMERATE : $1
+endsnippet
+snippet venum "enumerated list"
+
+% ENUMERATE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
+
+\begin{enumerate}[noitemsep]
+
+${VISUAL:text}
+
+\end{enumerate}
+
+% }}} END-ENUMERATE : $1
+endsnippet
+snippet itemize "itemized list"
+
+% ITEMIZE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
+
+\begin{itemize}[noitemsep]
+
+	\item $0
+
+\end{itemize}
+
+% }}} END-ITEMIZE : $1
+
+endsnippet
+snippet vitemize "itemized list"
+
+% ITEMIZE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
+
+\begin{itemize}[noitemsep]
+
+${VISUAL:text}
+
+\end{itemize}
+
+% }}} END-ITEMIZE : $1
+
+endsnippet
+
+snippet color "insert a color block"
+\color{${1:blue}}$0 \color{black}
+endsnippet
+snippet textcolor "insert a text color tag"
+\textcolor{gray}{$0}
+endsnippet
+snippet vcolor "visually color some text"
+\textcolor{gray}{${1:${VISUAL:text}}}
+endsnippet
+
+snippet vfold "visually start a foldable section"
+% $0 {{{
+
+${VISUAL}
+
+% }}}
+endsnippet
+snippet fold "start a foldable section"
+% $1 {{{
+$0
+% }}}
+endsnippet
+
+snippet ndq "insert normal style double quotation marks"
+\`\`${1:normal double}''
+endsnippet
+snippet nsq "insert normal style single quotation marks"
+\`${1:normal single}'
+endsnippet
+snippet gsq "insert german style single quotation marks"
+, ${1:german single.} \`
+endsnippet
+snippet gdq "insert german style double quotation marks"
+,,${1:german double.}\`\`
+endsnippet
+
+snippet vnsq "visually insert normal style single quotation marks"
+\`${1:${VISUAL:text}}'
+endsnippet
+snippet vndq "visually insert normal style double quotation marks"
+\`\`${1:${VISUAL:text}}''
+endsnippet
+snippet vgsq "visually insert german style single quotation marks"
+,${1:${VISUAL:text}}\`
+endsnippet
+snippet vgdq "visually insert german style double quotation marks"
+,,${1:${VISUAL:text}}\`\`
+endsnippet
+
+snippet imagewrap "insert an image right with wrap text"
+\begin{wrapfigure}{R}{0.4\textwidth}
+	\centering
+	\rule{5cm}{5cm}
+	%\includegraphics[width=0.25\textwidth]{${1:image_name}}
+	\caption{\label{fig:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}caption}
+\end{wrapfigure}
+endsnippet
+
+snippet tabularx "insert a tabularx (width align) table"
+
+% TABULARX TABLE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
+
+\tabularxtable
+{0.99\linewidth}
+{llX}
+{
+
+
+}
+
+% }}} End TABLE : $1
+
+endsnippet
+snippet xtabular "insert a xtabular (pagebreaking) table"
+
+% XTABULAR TABLE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
+
+\xtabulartable
+{lll}
+{
+
+}
+
+
+% }}} End XTABULAR TABLE : $1
+endsnippet
+snippet mkcell "insert makecell block"
+\makecell[l]{${1:${VISUAL:default text}}}{}
+endsnippet
+snippet widetable "inset a table that spans the entire page"
+
+
+% PAGE-WIDE TABLE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
+
+	\pagewidetable
+	{caption}
+	{
+		p{0.25\linewidth}
+		m{0.25\linewidth}
+		b{0.25\linewidth} 
+		% p{width} : Top-aligned cells width fixed width
+		% m{width} : Middle-aligned cells width fixed width
+		% b{width} : Bottom-aligned cells with fixed width
+	}
+	{
+
+		\hline
+		X & X & X\\\\
+		X & X & X\\\\
+		X & X & X\\\\
+
+	}
+
+% }}} End PAGE-WIDE TABLE : $1
+
+
+
+
+
+
+
+endsnippet
+
+snippet colmerge "table column merged"
+\multicolumn{10}{c}{} \\\\
+endsnippet
+
+snippet rowmerge "table row merged"
+\multirow{3}{*}{ \textbf{STRECH (Hamstring)} }&
+&
+&
+&
+\\\\
+endsnippet
+
+snippet rowcolmerge "description"
+\multicolumn{2}{c}{\multirow{2}{*}{Multi-col-row}}
+endsnippet
+
+
+
+snippet footurl "Insert a url as a footnote"
+~\footnote{\url{$0}}
+endsnippet
+snippet urlfoot "Insert a url as a footnote"
+~\footnote{\url{$0}}
+endsnippet
+
+snippet lettrine "Insert a lettrine formmated word"
+
+\lettrine[lines=3, findent=3pt, nindent=0pt]{$0}{} 
+
+endsnippet
+
+snippet tboxdefn "insert definition"
+
+% DEFINITION : ${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}} {{{
+\tcolorboxdefinition
+{${1:DEFINED WORD}}
+{\label{def:$2}}
+{
+
+
+
+}
+
+% }}} END DEFINITION : $2
+
+
+endsnippet
+snippet tboxnote "insert note"
+
+% NOTE : ${1:NOTE NAME} {{{
+
+\tcolorboxnote
+{
+
+}
+
+
+
+% }}} END NOTE : ${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}
+
+
+
+endsnippet
+snippet tboxtable "insert tcolorbox table"
+
+% TBOX TABLE : ${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}} {{{
+
+\tcolorboxtable
+{ ${1:TABLE TITLE} }
+{ \label{table:$2} }
+{ [width=\linewidth] }
+{
+
+}
+
+% }}} End TBOX TABLE : $2
+endsnippet
+snippet tboxfig "insert a tcolorbox image"
+
+% IMAGE : ${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}} {{{
+
+\tcolorboxfigure
+{$1}
+{\label{fig:$2}}
+{placeholder.jpg}
+{
+% name of citation in .bib
+}
+
+% }}} End IMAGE : $2
+
+endsnippet
+
+snippet secref "insert a section refrence"
+\refsec{$0}
+endsnippet
+snippet refsec "insert a section refrence"
+\refsec{$0}
+endsnippet
+snippet refssec "insert a sub section refrence"
+\refssec{$0}
+endsnippet
+snippet ssecref "insert a sub section refrence"
+\refssec{$0}
+endsnippet
+snippet refsssec "insert a sub sub section refrence"
+\refsssec{$0}
+endsnippet
+snippet sssecref "insert a sub sub section refrence"
+\refsssec{$0}
+endsnippet
+snippet defref "insert a definition reference"
+\refdef{$0}
+endsnippet
+snippet refdef "insert a definition reference"
+\refdef{$0}
+endsnippet
+snippet reffig "insert a figure/image reference"
+\reffig{$0}
+endsnippet
+snippet figref "insert a figure/image reference"
+\reffig{$0}
+endsnippet
+snippet tableref "insert a table reference"
+\reftable{$0}
+endsnippet
+snippet reftable "insert a table reference"
+\reftable{$0}
+endsnippet
+snippet urlref "insert a url reference"
+\refurl{$0}
+endsnippet
+snippet refurl "insert a url reference"
+\refurl{$0}
+endsnippet
+
+snippet lstlisting "insert lstlistings block"
+\nolinenumbers
+\begin{lstlisting}
+$0
+\end{lstlisting}
+\linenumbers
+\newpar
+endsnippet
+
+
+snippet kanji "insert kanji furigana block"
+\ruby{$1}{}
+endsnippet
+snippet vkanji "visual kanji furigana block"
+\ruby{${1:${VISUAL:default text}}}{}
+endsnippet
+
+
+
+snippet tempex "temp snip "
+\noindent
+\bulletpoint \textbf{${1:EXAMPLE GERMAN LINE}}\\\\
+Literal : \textit{ TRANSLATION }\\\\
+English : \textit{\textcolor{gray}{TRANSLATION}}\\\\
+e.g     : \textit{ EXAMPLE  } \\\\
+\textit{ \textcolor{gray}{EXAMPLE }}  \newpar
+endsnippet
+
+
+
+
+
+
+

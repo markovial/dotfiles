@@ -1,0 +1,613 @@
+; =============================================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+; ============================================================================
+; BAR DECLARATIONS AND SETTINGS
+; =============================================================================
+
+; COLORS SETTINGS --------------------------------------------------------- {{{
+
+[colors]
+#background     = #00181616
+background = ${xrdb:color0}
+#background     = #181616
+background-alt = #444
+foreground     = #E8EDF0
+foreground-alt = #555
+
+primary        = #ff7e00
+secondary      = #ff7e00
+alert          = #ff7e00
+
+bar-background = #E8EDF0
+
+icon           = #ff7e00
+icon-off       = #666
+text           = #E8EDF0
+text-alt       = #555
+underline      = #ff7e00
+
+; }}}
+; TOP BAR SETTINGS -------------------------------------------------------- {{{
+[bar/top]
+;monitor            = eDP-1
+monitor = ${env:MONITOR:}
+enable-ipc = true
+;Override redirect allows other windows to write over this bar
+;override-redirect = true
+;wm-restack        = i3
+
+width               = 100%
+height              = 35
+radius              = 0
+fixed-center        = true
+bottom              = false
+spacing             = 0
+;offset-x           = 1%
+;offset-y           = 1%
+
+background          = ${colors.background}
+foreground          = ${colors.foreground}
+
+line-size           = 3
+line-color          = #f00
+
+border-size         = 0
+border-color        = #00000000
+
+padding-left        = 3
+padding-right       = 3
+
+module-margin-left  = 2
+module-margin-right = 2
+
+font-0 = Hack:fixed:pixelsize=12;1
+font-1 = FontAwesome5Free:style=Solid:pixelsize=12:antialias=true
+font-2 = FontAwesome5Brands:style=Solid:pixelsize=12:antialias=true
+
+modules-left       = i3
+modules-center     = xwindow
+;modules-right      = pulseaudio wlan cpu temperature memory battery
+modules-right      = backlight-acpi pulseaudio wlan battery
+
+
+tray-position      = right
+tray-padding       = 2
+tray-background   = #0062ff
+
+cursor-click       = pointer
+cursor-scroll      = ns-resize
+
+; }}}
+; BOTTOM BAR SETTINGS ----------------------------------------------------- {{{
+[bar/bottom]
+; monitor name is obtained through a shell script
+monitor = ${env:MONITOR:}
+width               = 100%
+height              = 35
+;offset-x           = 1%
+;offset-y           = 1%
+radius              = 0
+fixed-center        = true
+bottom              = true
+background          = ${colors.background}
+foreground          = ${colors.foreground}
+
+line-size           = 3
+line-color          = #f00
+
+border-size         = 0
+border-color        = #00000000
+
+padding-left        = 3
+padding-right       = 3
+
+module-margin-left  = 2
+module-margin-right = 2
+
+
+font-0 = Hack-Regular:fixed:pixelsize=12;1
+font-1 = FontAwesome5Free:style=Solid:pixelsize=12:antialias=false
+font-2 = FontAwesome5Brands:style=Solid:pixelsize=12:antialias=false
+
+modules-left   = i3
+modules-center = mpd
+modules-right  = date
+
+tray-position  = right
+tray-padding   = 2
+
+cursor-click       = pointer
+cursor-scroll      = ns-resize
+
+; }}}
+
+; =============================================================================
+; TOP BAR MODULES : INTERNAL
+; =============================================================================
+
+; MODULE / MPD ------------------------------------------------------------ {{{
+[module/mpd]
+type                = internal/mpd
+# 
+
+format-online       = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+format-online-foreground          = ${colors.text}
+
+format-online-prefix = " "
+format-online-prefix-foreground         = ${colors.icon}
+format-online-underline                 = ${colors.underline}
+
+icon-prev           = 
+icon-stop           = 
+icon-play           = 
+icon-pause          = 
+icon-next           = 
+
+label-song-maxlen   = 35
+label-song-ellipsis = true
+; }}}
+; MODULE / XWINDOW -------------------------------------------------------- {{{
+[module/xwindow]
+type = internal/xwindow
+
+format-prefix = " " 
+format-prefix-foreground = ${colors.icon}
+format-underline         = ${colors.underline}
+label = %title:0:30:...%
+; }}}
+; MODULE / CPU ------------------------------------------------------------ {{{
+[module/cpu]
+type                     = internal/cpu
+interval                 = 2
+#format-prefix            = " "
+format-prefix            = " "
+format-prefix-foreground = ${colors.icon}
+format-underline         = ${colors.underline}
+label                    = %percentage:2%%
+
+
+; }}}
+; MODULE / MEMORY --------------------------------------------------------- {{{
+[module/memory]
+type                     = internal/memory
+interval                 = 2
+format-prefix            = " "
+format-prefix-foreground = ${colors.icon}
+format-underline         = ${colors.underline}
+label                    = %percentage_used%%
+
+; }}}
+; MODULE / WLAN ----------------------------------------------------------- {{{
+[module/wlan]
+type                           = internal/network
+# change this according to the output of iw dev
+interface                      = wlo1
+interval                       = 3.0
+
+format-connected-prefix               = " "
+format-connected-prefix-foreground    = ${colors.icon}
+format-connected                      = <label-connected>
+format-connected-underline            = ${colors.underline}
+
+#label-connected                      = %essid%
+label-connected                       = %{A1:nm-connection-editor:}%essid%%{A}
+format-disconnected-prefix            = " "
+format-disconnected-prefix-foreground = ${colors.icon-off}
+
+format-disconnected           = <label-disconnected>
+format-disconnected-underline = ${colors.icon-off}
+label-disconnected            = Disconnected
+label-disconnected-foreground = ${colors.icon-off}
+
+
+; }}}
+; MODULE / PULSEAUDIO ----------------------------------------------------- {{{
+[module/pulseaudio]
+type                            = internal/pulseaudio
+
+format-volume-prefix            = " "
+format-volume-prefix-foreground = ${colors.icon}
+format-volume                   = <label-volume>
+#format-volume                  = <label-volume> <bar-volume>
+label-volume                    = %percentage%%
+label-volume-foreground         = ${root.foreground}
+format-muted-prefix             = " "
+format-muted-prefix-foreground  = ${colors.icon-off}
+format-muted                    = <label-muted> <bar-volume>
+label-muted                     = %percentage%%
+label-muted-foreground          = #666
+
+bar-volume-width                = 9
+bar-volume-foreground-0         = ${colors.icon}
+bar-volume-foreground-1         = ${colors.icon}
+bar-volume-foreground-2         = ${colors.icon}
+bar-volume-foreground-3         = ${colors.icon}
+bar-volume-foreground-4         = ${colors.icon}
+bar-volume-foreground-5         = ${colors.icon}
+bar-volume-foreground-6         = ${colors.icon}
+;
+; NON-MONOTONE BAR
+;bar-volume-foreground-1         = #55aa55
+;bar-volume-foreground-2         = #55aa55
+;bar-volume-foreground-3         = #55aa55
+;bar-volume-foreground-4         = #55aa55
+;bar-volume-foreground-5         = #f5a70a
+;bar-volume-foreground-6         = #ff5555
+
+bar-volume-gradient             = false
+bar-volume-indicator            = |
+bar-volume-indicator-font       = 2
+bar-volume-fill                 = ─
+bar-volume-fill-font            = 2
+bar-volume-empty                = ─
+bar-volume-empty-font           = 2
+bar-volume-empty-foreground     = ${colors.foreground-alt}
+format-volume-underline         = ${colors.underline}
+format-muted-underline          = ${colors.icon-off}
+
+; }}}
+; MODULE / BATTERY -------------------------------------------------------- {{{
+[module/battery]
+type                          = internal/battery
+battery                       = BAT1
+adapter                       = ADP1
+full-at                       = 98
+format-charging               = <animation-charging> <label-charging>
+format-charging-underline     = ${colors.underline}
+format-discharging            = <animation-discharging> <label-discharging>
+label-discharging-foreground  = ${colors.icon-off}
+format-discharging-underline  = ${colors.icon-off}
+format-full-prefix            = " "
+format-full-prefix-foreground = ${colors.icon}
+format-full-underline         = ${self.format-charging-underline}
+animation-charging-0          = 
+animation-charging-1          = 
+animation-charging-2          = 
+animation-charging-3          = 
+animation-charging-4          = 
+animation-charging-foreground = ${colors.icon}
+animation-charging-framerate  = 750
+
+animation-discharging-4             = 
+animation-discharging-3             = 
+animation-discharging-2             = 
+animation-discharging-1             = 
+animation-discharging-0             = 
+
+animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-framerate  = 750
+
+; }}}
+; MODULE / TEMPRATURE ----------------------------------------------------- {{{
+[module/temperature]
+type                  = internal/temperature
+thermal-zone          = 0
+warn-temperature      = 90
+format                = <ramp> <label>
+format-underline      = ${colors.underline}
+format-warn           = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+label                 = %temperature-c%
+label-warn            = %temperature-c%
+label-warn-foreground = ${colors.text}
+ramp-0                = 
+ramp-1                = 
+ramp-2                = 
+ramp-3                = 
+ramp-4                = 
+ramp-foreground       = ${colors.icon}
+
+; }}}
+; MODULE / XBACKLIGHT ----------------------------------------------------- {{{
+[module/xbacklight]
+type                     = internal/xbacklight
+;output = eDP-1
+;
+format                   = <label>
+label                    = ""
+
+format-underline            = ${colors.underline}
+label-foreground    = ${colors.icon}
+bar-width                = 10
+bar-indicator            = |
+bar-indicator-foreground = #fff
+bar-indicator-font       = 2
+bar-fill                 = ─
+bar-fill-font            = 2
+bar-fill-foreground      = #9f78e1
+bar-empty                = ─
+bar-empty-font           = 2
+bar-empty-foreground     = ${colors.foreground-alt}
+
+; }}}
+; MODULE / BACKLIGHT-ACPI ------------------------------------------------- {{{
+[module/backlight-acpi]
+inherit = module/xbacklight
+type    = internal/backlight
+card    = intel_backlight
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+
+; Additional formatting
+
+; Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+format = <ramp> <label>
+
+
+format-prefix            = " "
+format-prefix-foreground = ${colors.icon}
+format-underline         = ${colors.underline}
+
+; Available tokens:
+;   %percentage% (default)
+label = %percentage%%
+label-foreground =  ${colors.foreground}
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+; Only applies if <bar> is used
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
+
+; }}}
+
+; =============================================================================
+; TOP BAR MODULES : CUSTOM
+; =============================================================================
+
+; MODULE / BLUETOOTH --------------------------------------------- {{{
+
+[module/bluetooth]
+type    = custom/ipc
+
+format-prefix            = " "
+format-prefix-foreground = ${colors.icon}
+
+
+;hook-0 = echo 
+;hook-1 = echo 
+hook-0  = ~/shell_scripts/dont_delete_yet/bluetooth_toggle.sh
+
+
+initial = 1
+
+click-left = polybar-msg hook bluetooth 1
+
+format-underline        = ${colors.underline}
+; }}}
+; MODULE / IP-ADDR --------------------------------------------- {{{
+
+[module/ipaddr]
+type    = custom/ipc
+
+;hook-0                  = echo 
+;hook-1                  = echo 
+format-prefix            = " "
+format-prefix-foreground = ${colors.icon}
+
+hook-0  = ~/.config/polybar/scripts/myip.sh
+
+
+initial = 1
+
+click-left = polybar-msg hook ~/.config/polybar/scripts/myip.sh 1
+
+format-underline        = ${colors.underline}
+
+; }}}
+; 
+; =============================================================================
+; BOTTOM BAR MODULES : INTERNAL
+; =============================================================================
+
+; MODULE / DATE ----------------------------------------------------------- {{{
+[module/date]
+type                              = internal/date
+interval                          = 5
+
+format-prefix                     = "   "
+format-prefix-foreground          = ${colors.icon}
+
+time                          = %H:%M
+time-alt                      = %H:%M
+
+
+#   
+date                              = %a %d/%b/%y
+date-alt                          = %U %d/%m/%y
+format-underline                 = ${colors.underline}
+label                             = %time% %date%
+
+
+; }}}
+; MODULE / i3 ------------------------------------------------------------- {{{
+[module/i3]
+type            = internal/i3
+format          = <label-state> <label-mode>
+index-sort      = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding    = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused                = Active workspace on focused monitor
+;label-focused            = %index%
+label-focused = %name%
+label-focused-background = ${module/bspwm.label-focused-background}
+;label-focused-underline  = ${module/bspwm.label-focused-underline}
+label-focused-padding    = ${module/bspwm.label-focused-padding}
+
+; unfocused             = Inactive workspace on any monitor
+;label-unfocused         = %index%
+label-unfocused         = %name%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+; visible                = Active workspace on unfocused monitor
+;label-visible            = %index%
+label-visible            = %name%
+label-visible-background = ${self.label-focused-background}
+;label-visible-underline  = ${self.label-focused-underline}
+label-visible-padding    = ${self.label-focused-padding}
+
+; urgent                = Workspace with urgency hint set
+;label-urgent            = %index%
+label-urgent            = %name%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding    = ${module/bspwm.label-urgent-padding}
+
+; Separator in between workspaces
+; label-separator = |
+
+; }}}
+; MODULE / BSPWM ---------------------------------------------------------- {{{
+[module/bspwm]
+type                     = internal/bspwm
+label-focused            = %index%
+label-focused-background = ${colors.background-alt}
+#label-focused-underline  = ${colors.primary}
+label-focused-padding    = 2
+label-occupied           = %index%
+label-occupied-padding   = 2
+label-urgent             = %index%!
+label-urgent-background  = ${colors.alert}
+label-urgent-padding     = 2
+label-empty              = %index%
+label-empty-foreground   = ${colors.foreground-alt}
+label-empty-padding      = 2
+
+; Separator in between workspaces
+; label-separator = |
+
+; }}}
+
+; =============================================================================
+; BOTTOM BAR MODULES : CUSTOM
+; =============================================================================
+
+; =============================================================================
+; UNUSED MODULES
+; =============================================================================
+
+; MODULE / FILESYSTEM ----------------------------------------------------- {{{
+[module/filesystem]
+type                       = internal/fs
+interval                   = 25
+mount-0                    = /
+label-mounted              = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted            = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+; }}}
+; MODULE / XKEYBOARD ------------------------------------------------------ {{{
+[module/xkeyboard]
+type                       = internal/xkeyboard
+blacklist-0                = num lock
+format-prefix              = " "
+format-prefix-foreground   = ${colors.foreground-alt}
+#format-prefix-underline    = ${colors.secondary}
+label-layout               = %layout%
+#label-layout-underline     = ${colors.secondary}
+label-indicator-padding    = 2
+label-indicator-margin     = 1
+label-indicator-background = ${colors.secondary}
+#label-indicator-underline  = ${colors.secondary}
+
+; }}}
+; MODULE / ETH ------------------------------------------------------------ {{{
+[module/eth]
+type                               = internal/network
+interface                          = tun0
+interval                           = 3.0
+format-connected-underline         = #55aa55
+format-connected-prefix            = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected                    = %local_ip%
+format-disconnected                =
+;format-disconnected               = <label-disconnected>
+;format-disconnected-underline     = ${self.format-connected-underline}
+;label-disconnected                = %ifname% disconnected
+;label-disconnected-foreground     = ${colors.foreground-alt}
+
+; }}}
+; MODULE / ALSA ----------------------------------------------------------- {{{
+[module/alsa]
+type                        = internal/alsa
+format-volume               = <label-volume> <bar-volume>
+label-volume                = VOL
+label-volume-foreground     = ${root.foreground}
+format-muted-prefix         = " "
+format-muted-foreground     = ${colors.foreground-alt}
+label-muted                 = sound muted
+bar-volume-width            = 10
+bar-volume-foreground-0     = #55aa55
+bar-volume-foreground-1     = #55aa55
+bar-volume-foreground-2     = #55aa55
+bar-volume-foreground-3     = #55aa55
+bar-volume-foreground-4     = #55aa55
+bar-volume-foreground-5     = #f5a70a
+bar-volume-foreground-6     = #ff5555
+bar-volume-gradient         = false
+bar-volume-indicator        = |
+bar-volume-indicator-font   = 2
+bar-volume-fill             = ─
+bar-volume-fill-font        = 2
+bar-volume-empty            = ─
+bar-volume-empty-font       = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+; }}}
+; MODULE / POWERMENU ------------------------------------------------------ {{{
+;[module/powermenu]
+;type                       = custom/menu
+;expand-right               = true
+;format-spacing             = 1
+;label-open                 =
+;label-open-foreground      = ${colors.secondary}
+;label-close                =  cancel
+;label-close-foreground     = ${colors.secondary}
+;label-separator            = |
+;label-separator-foreground = ${colors.foreground-alt}
+;menu-0-0                   = reboot
+;menu-0-0-exec              = menu-open-1
+;menu-0-1                   = power off
+;menu-0-1-exec              = menu-open-2
+;menu-1-0                   = cancel
+;menu-1-0-exec              = menu-open-0
+;menu-1-1                   = reboot
+;menu-1-1-exec              = sudo reboot
+;menu-2-0                   = power off
+;menu-2-0-exec              = sudo poweroff
+;menu-2-1                   = cancel
+;menu-2-1-exec              = menu-open-0
+
+; }}}
+
+[settings]
+screenchange-reload     = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border     = over
+;pseudo-transparency    = false
+
+[global/wm]
+margin-top    = 5
+margin-bottom = 5
+
+; vim:ft=dosini

@@ -1,0 +1,137 @@
+snippet com "visual comment"
+<!-- 
+
+${1:${VISUAL:text}}
+
+-->
+endsnippet
+
+snippet fold "fold"
+<!-- START : ${1:FOLD NAME} {{{  -->
+
+
+<!-- }}} END : $1 -->
+endsnippet
+
+snippet vf "visual fold"
+<!-- START : ${1:FOLD NAME} {{{  -->
+
+${2:${VISUAL:text}}
+
+<!-- }}} END : $1 -->
+endsnippet
+
+
+
+snippet p "visual paragraph"
+<p> ${1:${VISUAL:text}} </p>
+endsnippet
+
+snippet b "visual bold"
+<b> ${1:${VISUAL:text}} </b>
+endsnippet
+
+snippet em "visual emphasis / italic"
+<em> ${1:${VISUAL:text}} </em>
+endsnippet
+
+snippet a "visual hyperlink"
+<a href="#" target="_self" title=""> ${1:${VISUAL:text}} </a>
+endsnippet
+
+
+snippet vol "visual ordered list"
+<ol>
+	${1:${VISUAL:text}}
+</ol>
+endsnippet
+
+snippet vul "visual unordered list"
+<ol>
+	${1:${VISUAL:text}}
+</ol>
+endsnippet
+
+snippet vdl "visual description list"
+<dl>
+	${1:${VISUAL:text}}
+</dl>
+endsnippet
+
+snippet vli "visual list item"
+<li> ${1:${VISUAL:text}} </li>
+endsnippet
+
+snippet vdt "visual description list item"
+<dt> ${1:${VISUAL:text}} </dt><dd> </dd>
+endsnippet
+
+
+snippet acc "accordion"
+<!-- START : Accordion : ${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}} {{{  -->
+
+<button class="accordion">  ${1:ACCORDION NAME} </button>
+<div class="panel">
+
+
+</div>
+<!-- }}} END : Accordion : $2  -->
+endsnippet	
+
+snippet vacc "visual accordion"
+<!-- START : Accordion : ${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}} {{{  -->
+
+<button class="accordion">  ${1:ACCORDION NAME} </button>
+<div class="panel">
+
+${3:${VISUAL:text}}
+
+</div>
+<!-- }}} END : Accordion : $2  -->
+endsnippet	
+
+snippet ieq "MathJax Latex inline Equation"
+\( $0 \)
+endsnippet
+
+snippet eq "MathJax Latex Equation"
+\[
+	\begin{array}{ l@{} l@{} }
+
+		$0
+
+	\end{array}
+\]
+endsnippet
+
+snippet vieq "Visual MathJax Latex inline Equation"
+\( ${1:${VISUAL:text}} \)
+endsnippet
+
+snippet veq "MathJax Latex Equation"
+\[
+	\begin{array}{ l@{} l@{} }
+
+
+		${1:${VISUAL:text}}
+
+
+	\end{array}
+\]
+endsnippet
+
+snippet tbd "formatting for to be done later block"
+
+	<b style="color:red;">TO BE DONE</b>
+
+	<ol style="color:red;">
+
+		<li>$0</li>
+
+	</ol>
+
+endsnippet
+
+snippet vstrike "visual strikeout tags"
+<s>${1:${VISUAL:text}}</s>
+endsnippet
