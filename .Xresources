@@ -1,0 +1,155 @@
+! Color Definitions {{{
+
+
+#define white         #E8EDF0
+#define black         #181616
+
+#define gray_light    #A2A1A1
+#define gray_medium   #747373
+#define gray_dark     #464444
+
+#define orange_light  #FFC135
+#define orange_medium #FF7E00
+#define orange_dark   #B25800
+
+#define yellow_light  #F0DC32
+#define yellow_medium #EDD400
+#define yellow_dark   #A59400
+
+#define red_light     #DB4C4C
+#define red_medium    #CC0000
+#define red_dark      #510000
+
+#define blue_light    #4CC4D3
+#define blue_medium   #00ACC1
+#define blue_dark     #005660
+
+#define purple_light  #8C7193
+#define purple_medium #5C3566
+#define purple_dark   #371F3D
+
+#define green_light   #8FDB44
+#define green_medium  #73D216
+#define green_dark    #457E0D
+
+! cterm colors
+! white         15
+! black         16
+! gray_light    248
+! gray_medium   243
+! gray_dark     238
+! orange_light  214
+! orange_medium 202
+! orange_dark   130
+! yellow_light  228
+! yellow_medium 226
+! yellow_dark   178
+! red_light     210
+! red_medium    160
+! red_dark      124
+! blue_light    51
+! blue_medium   39
+! blue_dark     30
+! purple_light  96
+! purple_medium 129
+! purple_dark   140
+! green_light   119
+! green_medium  34
+! green_dark    22 
+
+
+
+
+! }}}
+
+*color0: black
+*color1: white
+*color2: orange_medium
+
+! URxvt {{{
+
+URxvt.termName: screen-256color
+URxvt*font: xft:Hack-Regular:size=12
+
+! Color Definitions
+URxvt*color0:      #000000
+
+
+URxvt*color1: #7F3F00 
+URxvt*color2: #FF7E00 
+URxvt*color3: #994B00 
+URxvt*color4: #b25800 
+URxvt*color5: #963c59 
+URxvt*color6: #418179 
+URxvt*color7: #bebebe 
+URxvt*color8: #666666 
+URxvt*color9: #cf6171 
+URxvt*color10:#c5f779 
+URxvt*color11:#fff796 
+URxvt*color12:#4186be 
+URxvt*color13:#cf9ebe 
+URxvt*color14:#71bebe 
+URxvt*color15:#ffffff
+
+URxvt.cursorColor: #FF7E00
+URxvt.pointerColor: #FF0000
+
+URxvt.cursorUnderline : false
+Urxvt.cursorBlink : true
+
+! uRL Link colors
+URxvt.matcher.rend.0 : Uline Bold fg5
+URxvt.saveLines      : 4095
+
+! Font Settings
+URxvt.font          : xft:Hack-Regular:size:12
+URxvt.italicFont    : xft:Hack-Regular:italic:size=12
+URxvt.boldFont      : xft:Hack-Regular:bold:size=12
+URxvt.boldItalicFont: xft:Hack-Regular:bold:italic:size=12
+
+!URxvt.colorUL       : yellow
+!URxvt.underlineColor: yellow
+
+URxvt.skipBuiltinGlyphs: true
+
+! Scrolling Settings
+URxvt.scrollBar          : false
+URxvt.scrollstyle        : plain
+URxvt.skipScroll         : true
+URxvt.scrollBar_right    : false
+URxvt.scrollBar_floating : false
+
+! Terminal Aesthetics Settings
+URxvt.depth          : 32
+URxvt.background     : [50]#181616
+!!URxvt.background   : #1A1818
+URxvt.foreground     : #dfdfdf
+URxvt.borderColor    : [50]#181616
+URxvt.internalBorder : 50
+URxvt.externalBorder : 0
+URxvt.borderWidth    : 50
+
+
+!Urxvt.urlLauncher : firefox
+URxvt.urlLauncher  : /opt/mozilla/bin/firefox
+
+
+! scroll back to the bottom on keypress
+! URxvt*scrollTtyKeypress: true
+
+!URxvt.transparent : true
+URxvt.tintColor    : black
+URxvt.shading      : 18
+
+! }}}
+
+
+
+
+
+
+Xft.dpi       : 96
+Xft.antialias : true
+Xft.hinting   : full
+
+

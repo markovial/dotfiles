@@ -1,0 +1,4 @@
+PS1('>> ')
+clc
+cd ~/scripts/octave
+
