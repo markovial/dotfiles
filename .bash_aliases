@@ -50,19 +50,18 @@ alias myip='curl http://ipecho.net/plain; echo'
 alias yt-mp3='youtube-dl --ignore-errors --extract-audio --audio-format mp3'
 #alias yt-ch='youtube-dl -F'
 
-# function instead of an alias cause i wanted to grep the output in one line
-function yt-ch { youtube-dl -F "$1" | grep -v only ; }
-export -f yt-ch
-
 alias yt-dl='youtube-dl -f 22'
 
 # append playlist ID and not video id to following command
 alias yt-pl='youtube-dl -i'
 
+# function instead of an alias cause i wanted to grep the output in one line
+function yt-ch { youtube-dl -F "$1" | grep "best" ;}
+export -f yt-ch
+
+
 # QOL aliases
 #alias web-dl='./scripts/shell/website_download.sh'
-
-
 #alias phone-ch='simple-mtpfs -l'
 #alias mt-ph='simple-mtpfs --device 1 /media/phone/'
 #alias umt-ph='fusermount -u ~/media/phone/'
