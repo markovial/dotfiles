@@ -43,9 +43,10 @@ call vundle#begin()
 	Plugin 'xuhdev/vim-latex-live-preview'           " Live previews for LATEX
 	Plugin 'honza/vim-snippets'                      " snippets base functionality
 	Plugin 'SirVer/ultisnips'                        " snippets extensions
-	Plugin 'itchyny/lightline.vim' 
-	Plugin 'yggdroot/indentline'	
-	"
+	Plugin 'itchyny/lightline.vim'
+	Plugin 'yggdroot/indentline'
+	Plugin 'airblade/vim-gitgutter'
+
 "	Plugin 'nathanaelkane/vim-indent-guides'        " highlight alternating indentation
 "	Plugin 'inside/vim-search-pulse'                " Makes current line pulse when you search
 "	Plugin 'jiangmiao/auto-pairs'
@@ -60,6 +61,16 @@ filetype plugin indent on
 " }}}
 " PLUGINS    : Settings --------------------------------------------------- {{{
 
+"     Latex Live Preview                                          {{{
+
+let g:livepreview_previewer = 'evince'
+let g:livepreview_use_biber = 1
+"let g:livepreview_engine = 'pdflatex' . ' [options]'
+
+" refresh time for latex live preview and git-gutter
+set updatetime=750
+"
+" }}}
 " 	Syntastic settings                                                  {{{
 	set statusline+=%#warningmsg#
 	set statusline+=%{SyntasticStatuslineFlag()}
@@ -116,9 +127,6 @@ let g:indentLine_char = '┊'
 "let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeShowHidden=0
-
-
-
 
 "Automatically open NerdTree when opening a file in vim
 " autocmd vimenter * NERDTree
@@ -581,8 +589,7 @@ set list
 "set listchars=tab:┊\ ,eol:¬,extends:❯,precedes:❮
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 
-
-"hi RedundantSpaces term=standout ctermbg=Grey guibg=#ffddcc
+hi RedundantSpaces term=standout ctermbg=Grey guibg=#ffddcc
 
 "call matchadd('RedundantSpaces', '\(\s\+$\| \+\ze\t\|\t\zs \+\)\(\%#\)\@!')
 " Automatically deletes all trailing whitespace on save
@@ -595,6 +602,8 @@ augroup trailing
     au InsertLeave * :set listchars+=trail:⌴
 augroup END
 
+" makes vim switch to matching bracket for half a second
+set showmatch
 
 " }}}
 " SETTINGS   : AESTHETICS : Window Sizes --------------------------------- {{{
@@ -604,6 +613,10 @@ augroup END
 autocmd VimResized * wincmd =
 set equalalways
 
+
+" }}}
+
+" stop hiding the code and showing fancy characters
 function! ToggleConcealLevel()
     if &conceallevel == 0
         setlocal conceallevel=2
@@ -613,16 +626,6 @@ function! ToggleConcealLevel()
 endfunction
 
 nnoremap <silent> <C-y> :call ToggleConcealLevel()<CR>
-
-" }}}
-
-" makes vim switch to matching bracket for half a second
-set showmatch
-
-
-
-
-
 
 " =============================================================================
 " - EOF - EOF - EOF - EOF - EOF - EOF - EOF - EOF - EOF - EOF - EOF - EOF -
