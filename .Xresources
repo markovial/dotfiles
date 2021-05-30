@@ -1,6 +1,5 @@
 ! Color Definitions {{{
 
-
 #define white         #E8EDF0
 #define black         #181616
 
@@ -57,14 +56,13 @@
 ! green_medium  34
 ! green_dark    22 
 
-
-
-
 ! }}}
 
 *color0: black
 *color1: white
 *color2: orange_medium
+*color3: gray_medium
+
 
 ! URxvt {{{
 

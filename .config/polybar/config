@@ -10,29 +10,42 @@
 ; COLORS SETTINGS --------------------------------------------------------- {{{
 
 [colors]
-#background     = #00181616
-background = ${xrdb:color0}
+background     = ${xrdb:color0}
+background-alt = ${xrdb:color3}
+foreground     = ${xrdb:color1}
+foreground-alt = ${xrdb:color0}
+primary        = ${xrdb:color2}
+secondary      = ${xrdb:color2}
+alert          = ${xrdb:color2}
+bar-background = ${xrdb:color2}
+icon           = ${xrdb:color2}
+icon-off       = ${xrdb:color2}
+text           = ${xrdb:color3}
+text-alt       = ${xrdb:color3}
+underline      = ${xrdb:color2}
+
+#background     = #E6181616
 #background     = #181616
-background-alt = #444
-foreground     = #E8EDF0
-foreground-alt = #555
-
-primary        = #ff7e00
-secondary      = #ff7e00
-alert          = #ff7e00
-
-bar-background = #E8EDF0
-
-icon           = #ff7e00
-icon-off       = #666
-text           = #E8EDF0
-text-alt       = #555
-underline      = #ff7e00
+#background-alt = #444
+#foreground     = #E8EDF0
+#foreground-alt = #555
+#primary        = #ff7e00
+#secondary      = #ff7e00
+#alert          = #ff7e00
+#bar-background = #E8EDF0
+#icon           = #ff7e00
+#icon-off       = #666
+#text           = #E8EDF0
+#text-alt       = #555
+#underline      = #ff7e00
 
 ; }}}
 ; TOP BAR SETTINGS -------------------------------------------------------- {{{
 [bar/top]
 ;monitor            = eDP-1
+;monitor            = HDMI-1-0
+
+; i think this one just pick the primary montior chosen by arandr
 monitor = ${env:MONITOR:}
 enable-ipc = true
 ;Override redirect allows other windows to write over this bar
@@ -48,11 +61,14 @@ spacing             = 0
 ;offset-x           = 1%
 ;offset-y           = 1%
 
-background          = ${colors.background}
-foreground          = ${colors.foreground}
+#background          = ${colors.background}
+#foreground          = ${colors.foreground}
+
+background          = ${xrdb:color0}
+foreground          = ${xrdb:color1}
 
 line-size           = 3
-line-color          = #f00
+line-color          = ${xrdb:color2}
 
 border-size         = 0
 border-color        = #00000000
@@ -75,7 +91,7 @@ modules-right      = backlight-acpi pulseaudio wlan battery
 
 tray-position      = right
 tray-padding       = 2
-tray-background   = #0062ff
+tray-background   = ${xrdb:color0}
 
 cursor-click       = pointer
 cursor-scroll      = ns-resize
@@ -412,6 +428,15 @@ format-underline        = ${colors.underline}
 ; BOTTOM BAR MODULES : INTERNAL
 ; =============================================================================
 
+
+; =============================================================================
+; BOTTOM BAR MODULES : CUSTOM
+; =============================================================================
+
+; =============================================================================
+; UNUSED MODULES
+; =============================================================================
+
 ; MODULE / DATE ----------------------------------------------------------- {{{
 [module/date]
 type                              = internal/date
@@ -495,15 +520,6 @@ label-empty-padding      = 2
 ; label-separator = |
 
 ; }}}
-
-; =============================================================================
-; BOTTOM BAR MODULES : CUSTOM
-; =============================================================================
-
-; =============================================================================
-; UNUSED MODULES
-; =============================================================================
-
 ; MODULE / FILESYSTEM ----------------------------------------------------- {{{
 [module/filesystem]
 type                       = internal/fs
