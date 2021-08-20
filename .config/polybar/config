@@ -19,7 +19,7 @@ secondary      = ${xrdb:color2}
 alert          = ${xrdb:color2}
 bar-background = ${xrdb:color2}
 icon           = ${xrdb:color2}
-icon-off       = ${xrdb:color2}
+icon-off       = ${xrdb:color3}
 text           = ${xrdb:color3}
 text-alt       = ${xrdb:color3}
 underline      = ${xrdb:color2}
@@ -86,7 +86,7 @@ font-2 = FontAwesome5Brands:style=Solid:pixelsize=12:antialias=true
 modules-left       = i3
 modules-center     = xwindow
 ;modules-right      = pulseaudio wlan cpu temperature memory battery
-modules-right      = backlight-acpi pulseaudio wlan battery
+modules-right      = backlight-acpi pulseaudio battery
 
 
 tray-position      = right

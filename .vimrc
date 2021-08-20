@@ -14,47 +14,129 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 	Plugin 'VundleVim/Vundle.vim'
+	
+	" File Navigation
+	Plugin 'scrooloose/nerdtree'
 
-	Plugin 'scrooloose/nerdtree'                     " File Navigation
-	Plugin 'ctrlpvim/ctrlp.vim'                      " Fuzzy finding files , altern to NerdTree
-	Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " Makes NerdTree Prettier
-	Plugin 'ryanoasis/vim-devicons'                  " Adds glyphs to make vim prettier
+	" Makes NerdTree Prettier
+	Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-	Plugin 'ervandew/supertab'                       " Tab completion in insert mode
-	Plugin 'godlygeek/tabular'                       " Line up your text
-	Plugin 'tpope/vim-surround'                      " surround stuff in quotes and brackets
-	Plugin 'adelarsq/vim-matchit'                    " Extended matching for %
+	" Adds glyphs to make vim prettier
+	Plugin 'ryanoasis/vim-devicons'
 
-	Plugin 'scrooloose/nerdcommenter'                " Functions for commenting
-	Plugin 'tpope/vim-commentary'                    " Comment multiple lines simultaneously
+	" Navigation using functions / classes etc
+	Plugin 'liuchengxu/vista.vim'
 
-	Plugin 'junegunn/goyo.vim'                       " Focus Mode for vim
-	Plugin 'junegunn/limelight.vim'                  " Dims non focused paragraphs
-	Plugin 'ap/vim-css-color'                        " Displays rgb,hex colors highlighted
-	Plugin 'liuchengxu/vista.vim'                    " Navigation using functions / classes etc
+	" Tab completion in insert mode
+	Plugin 'ervandew/supertab'
 
-	Plugin 'RRethy/vim-illuminate'                   " Highlights other uses of word that cursor is over
+	" Line up your text
+	Plugin 'godlygeek/tabular'
 
-	Plugin 'scrooloose/syntastic'                    " Linter
-	Plugin 'sheerun/vim-polyglot'                    " Adds language support for a whole bunch of langs
-	Plugin 'mboughaba/i3config.vim'                  " Syntax Highlighting for i3 config file
-	Plugin 'McSinyx/vim-octave.git'                  " Allows octave syntax highligting
-	Plugin 'LaTeX-Box-Team/LaTeX-Box'                " Bunch of latex related functionality
-	Plugin 'xuhdev/vim-latex-live-preview'           " Live previews for LATEX
-	Plugin 'honza/vim-snippets'                      " snippets base functionality
-	Plugin 'SirVer/ultisnips'                        " snippets extensions
+	" surround stuff in quotes and brackets
+	Plugin 'tpope/vim-surround'
+
+	" Extended matching for %
+	Plugin 'adelarsq/vim-matchit'
+
+	" Automatically insert two of quotes , () , ...
+	Plugin 'jiangmiao/auto-pairs'
+	
+	" Functions for commenting
+	Plugin 'scrooloose/nerdcommenter'
+
+	" Comment multiple lines simultaneously
+	Plugin 'tpope/vim-commentary'
+
+	" Displays rgb,hex colors highlighted
+	Plugin 'ap/vim-css-color'
+
+	" Highlights other uses of word that cursor is over
+	Plugin 'RRethy/vim-illuminate'
+
+	" shows how many times a search pattern occurs in the current buffer
+	Plugin 'google/vim-searchindex'
+
+	" Linter (Error checking + Warnings)
+	Plugin 'dense-analysis/ale'
+
+	" Adds language support for a whole bunch of langs
+	Plugin 'sheerun/vim-polyglot'
+
+	" Adds octave language support
+	Plugin 'McSinyx/vim-octave.git'
+
+	" Adds syntax Highlighting for i3 config file
+	Plugin 'mboughaba/i3config.vim'
+
+	" Bunch of latex related functionality
+	Plugin 'LaTeX-Box-Team/LaTeX-Box'
+
+	" Live previews for LATEX
+	Plugin 'xuhdev/vim-latex-live-preview'
+
+	" Allows live offline previews for markdown files
+	Plugin 'instant-markdown/vim-instant-markdown', {'rtp': 'after'}
+
+	" snippets base functionality
+	Plugin 'honza/vim-snippets'
+
+	" snippets extensions
+	Plugin 'SirVer/ultisnips'
+
 	Plugin 'itchyny/lightline.vim'
+
 	Plugin 'yggdroot/indentline'
+
+	" shows chages to file since last git pull
 	Plugin 'airblade/vim-gitgutter'
 
-"	Plugin 'nathanaelkane/vim-indent-guides'        " highlight alternating indentation
-"	Plugin 'inside/vim-search-pulse'                " Makes current line pulse when you search
-"	Plugin 'jiangmiao/auto-pairs'
+	" Extended . functionality
+	Plugin 'tpope/vim-repeat'
+
+	" Highlight flashes to indicate what was yanked
+	Plugin 'machakann/vim-highlightedyank'
+
+	" Better find f functionality
+	Plugin 'rhysd/clever-f.vim'
+
+	" Fuzzy find files and commands
+	Plugin 'junegunn/fzf.vim'
+
+	" Shows recently edited files as vim start screen
+	Plugin 'mhinz/vim-startify'
+
+	" Auto completion of funciton definitions
+	Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+
+	" incrementally highlights search results
+"	Plugin 'haya14busa/incsearch.vim' 
+
+	" Sets unique colors for brackets for easy identification
+"	Plugin 'frazrepo/vim-rainbow'
+
+	" Linter (Error checking + Warnings)
+"	Plugin 'scrooloose/syntastic'
+
+	" Dims non focused paragraphs
+"	Plugin 'junegunn/limelight.vim'
+
+	" highlight alternating indentation
+"	Plugin 'nathanaelkane/vim-indent-guides'
+
+	" Makes current line pulse when you search
+"	Plugin 'inside/vim-search-pulse'
+
+	" Focus Mode for vim
+"	Plugin 'junegunn/goyo.vim'
+
+	" Fuzzy finding files , altern to NerdTree
+"	Plugin 'ctrlpvim/ctrlp.vim'
+
 "	Plugin 'powerline/powerline'
 "	Plugin 'bling/vim-airline'
 "	Plugin 'jreybert/vimagit'
-"	Plugin 'neoclide/coc.nvim'
-" https://github.com/Xuyuanp/nerdtree-git-plugin
+
 
 	call vundle#end()
 filetype plugin indent on
@@ -80,25 +162,6 @@ set updatetime=750
 	let g:syntastic_check_on_open = 1
 	let g:syntastic_check_on_wq = 0
 
-
-" Syntastic full language suppresion
-let g:syntastic_mode_map = { 'passive_filetypes': ['tex'] } 
-"
-" Syntastic warning suppresion : LATEX
-let g:syntastic_quiet_messages = { "regex": [
-	\ '\mpossible unwanted space at "{"',
-	\ '\mCommand terminated with space.',
-	\ '\mYou ought to remove spaces in front of punctuation.',
-	\ '\mYou should put a space in front of parenthesis.',
-	\ '\mWhitespace before punctation mark in " !"',
-	\ '\mWhitespace before punctation mark in " ."',
-	\ '\mYou should avoid spaces after parenthesis.',
-	\ '\mYou should avoid spaces in front of parenthesis.',
-	\ '\mWrong length of dash may have been used.',
-	\ '\mVertical rules in tables are ugly.',
-	\ '\mDelete this space to maintain correct pagereferences.',
-\]}
-" 
 " }}}
 " 	ultisnips settings                                                  {{{
 
@@ -107,7 +170,7 @@ let g:syntastic_quiet_messages = { "regex": [
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-"
+
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
@@ -166,14 +229,6 @@ let g:ctrlp_prompt_mappings = {
 " }}}
 "     Goyo + Limelight Settings                                           {{{
 
-
-" temp workaround for BG color change on exit
-" check later to see if issue is solved
-autocmd! User GoyoLeave source $HOME/.vimrc
-
-let g:goyo_width = 100
-let g:goyo_height = 100
-"
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
@@ -198,11 +253,6 @@ let g:limelight_eop = '\ze\n^\s'
 "   Set it to -1 not to overrule hlsearch
 let g:limelight_priority = -1
 
-
-
-
-"autocmd! User GoyoEnter Limelight
-"autocmd! User GoyoLeave Limelight!
 
 
 " }}}
@@ -242,6 +292,29 @@ let g:lightline = {
 
 
 " }}}
+"     Markdown Live Preview {{{
+
+"let g:instant_markdown_slow = 1
+"let g:instant_markdown_autostart = 0
+"let g:instant_markdown_open_to_the_world = 1
+"let g:instant_markdown_allow_unsafe_content = 1
+"let g:instant_markdown_allow_external_content = 0
+"let g:instant_markdown_mathjax = 1
+"let g:instant_markdown_mermaid = 1
+"let g:instant_markdown_logfile = '/tmp/instant_markdown.log'
+"let g:instant_markdown_autoscroll = 0
+"let g:instant_markdown_port = 8888
+"let g:instant_markdown_python = 1
+
+" }}}
+
+
+let g:highlightedyank_highlight_duration = 200
+
+" highlighted yank colors (must be after set colorscheme)
+highlight HighlightedyankRegion cterm=reverse gui=reverse
+
+
 
 " }}}
 
@@ -254,11 +327,10 @@ autocmd VimEnter * wincmd w
 
 map <silent> <F3> <ESC>:Vista!!<CR>
 map <silent> <C-t> :Tab/
-map <silent> <C-p> :CtrlP<CR>
 
 
-
-" compile / interpret and run according to filetypes
+" }}}
+" MAPPINGS   : Compilation / Interpretation {{{
 
 autocmd FileType tex map <buffer> <F5> :LLPStartPreview <CR>
 
@@ -266,19 +338,20 @@ autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%,
 
 autocmd FileType html map <buffer> <F5> :silent update<Bar>silent !firefox %:p &<CR>
 
+" autocmd FileType markdown map <buffer> <F5> :silent update<Bar>silent !firefox %:p &<CR>
+
 "autocmd FileType sh map <buffer> <F5> ./%:t<CR>
 
-" %:r returns filename
-" %:t returns filename+extension
 " second commented command compiles and runs , but does not allow for input , so
-" is not really that useful
+" is not really that useful for bigger programs , for short scripts sure
 autocmd FileType c map <buffer> <F5> :!gcc -o %:r %:t<CR>
 "autocmd FileType c map <buffer> <F5> :!gcc -o %:r % && ./%:r<CR>
 
 autocmd FileType cpp map <buffer> <F5> :!g++ -o %:r %:t<CR>
 "autocmd FileType cpp map <buffer> <F5> :!g++ -o %:r % && ./%:r<CR>
-"
+
 "autocmd FileType cs map <buffer> <F5> <CR>
+
 
 " }}}
 " MAPPINGS   : Convinience ------------------------------------------------ {{{
@@ -344,55 +417,33 @@ nnoremap S <ESC>:%s///gc<Left><Left><Left>
 " https://stackoverflow.com/questions/9054780/how-to-toggle-vims-search-highlight-visibility-without-disabling-it
 " mapping conflict with resize splits c-h
 "let hlstate=0
-"nnoremap <silent> <C-h> <ESC>:if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<CR>
+"nnoremap <silent> <C-y> <ESC>:if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<CR>
 
 " system clipboard copy pasta
 " need gvim installed to access + and * registers
 " also needed xclip for nvim : https://github.com/neovim/neovim/issues/2704
 nnoremap <C-c> "+y
+
+
+
+
+"}}}
+"     Visual Mode Mappings {{{
+
+" search for currently highlighted text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
 vnoremap <C-c> "+y
 
 " copy to both registers * and +
-" cause you dont know which one the cur program uses and binding should always
-" work
+" cause you dont know which one the cur program uses and binding should always work
 vnoremap <C-C> "*y :let @+=@*<CR>
 
 "map <C-v> "+P
 
 " to use . command over visual lines
 vnoremap . :normal .<CR>
-
-
-
-
-
-
-
-
-"}}}
-" 	Visual Mode mappings                                                  {{{
-
-" system clipboard copy pasta
-
-
 " }}}
-" }}}
-" MAPPINGS   : Habit Breaking --------------------------------------------- {{{
-
-noremap <Up>    :echo "YOU FOOL ! Use j"<cr>
-noremap <Down>  :echo "YOU FOOL ! Use k"<cr>
-noremap <Left>  :echo "YOU FOOL ! Use h"<cr>
-noremap <Right> :echo "YOU FOOL ! Use l"<cr>
-
-inoremap <Up>    <ESC> :echo "YOU FOOL ! Use j" <cr>
-inoremap <Down>  <ESC> :echo "YOU FOOL ! Use k" <cr>
-inoremap <Left>  <ESC> :echo "YOU FOOL ! Use h" <cr>
-inoremap <Right> <ESC> :echo "YOU FOOL ! Use l" <cr>
-
-
-
-
-
 " }}}
 
 " SETTINGS   : Basic ------------------------------------------------------ {{{
@@ -412,7 +463,7 @@ augroup END
 set smartcase
 
 " wraps the text
-set wrap
+"set wrap
 
 " Always display the status bar
 set laststatus=2
@@ -432,43 +483,40 @@ set title
 " Allow backspacing over indention, line breaks and insertion start.
 set backspace=indent,eol,start
 
-set confirm
 " Display a confirmation dialog when closing an unsaved file.
+set confirm
 
-set history=1000
 " set undo limit
+set history=1000
 
 " persistent undos - undo after you re-open the file
 set undofile
 
-set cursorline
 "highlight current line
+set cursorline
 
-set mousemodel=popup
 " right-click brings up context menu
+set mousemodel=popup
 
+" file encoding as utf-8
 set encoding=utf-8
-" file encoding as utf-8
-
 set fileencoding=utf-8
-" file encoding as utf-8
-
 set termencoding=utf-8
-" save and encode files as utf-8
 
-set hidden
 " dont unload buffer when switching array
+set hidden
 
-set secure
 " disable unsafe commands in local .vimrc files
+set secure
 
-set textwidth=80
 " wraps lines after 80 characters
+"set textwidth=80
 
 set foldmethod=marker
 
-set showcmd
 " show num highlighted lines in visual mode
+set showcmd
+
 
 
 " }}}
@@ -477,16 +525,8 @@ set showcmd
 
 
 " }}}
-" SETTINGS   : movement --------------------------------------------------- {{{
+" SETTINGS   : Movement --------------------------------------------------- {{{
 
-" return to the last line editied when reopening a file
-augroup line_return
-    au!
-    au bufreadpost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
-augroup end
 
 " }}}
 " SETTINGS   : Searching -------------------------------------------------- {{{
@@ -497,8 +537,6 @@ set incsearch
 
 " }}}
 " SETTINGS   : folding ---------------------------------------------------- {{{
-
-
 
 set foldmethod=marker
 set foldlevelstart=0
@@ -550,20 +588,20 @@ set foldtext=MyFoldText()
 " }}}
 " SETTINGS   : Language Specific ------------------------------------------ {{{
 
+" do not conceal in latex documents
+let g:tex_conceal=""
 
 " }}}
 
 " SETTINGS   : AESTHETICS : Basics / Color Scheme ------------------------- {{{
 
 set t_Co=256                                                                    " " 256 colors in terminal
-"colorscheme rupza                                                             " set colorscheme
-"colorscheme monokai
 colorscheme current
 
 filetype plugin indent on                 " ???
 :hi Normal guibg=NONE ctermbg=NONE        " make background transparent
 set colorcolumn=+1                        " highlight the 81st column
-:hi ColorColumn guibg=#262626 ctermbg=235 " color settings for 81st column highlight
+":hi ColorColumn guibg=#262626 ctermbg=235 " color settings for 81st column highlight
 
 " no scrollbars
 set guioptions-=L
@@ -617,15 +655,36 @@ set equalalways
 " }}}
 
 " stop hiding the code and showing fancy characters
-function! ToggleConcealLevel()
-    if &conceallevel == 0
-        setlocal conceallevel=2
-    else
-        setlocal conceallevel=0
-    endif
-endfunction
 
-nnoremap <silent> <C-y> :call ToggleConcealLevel()<CR>
+"function! ToggleConcealLevel()
+	"if &conceallevel == 0
+		"setlocal conceallevel=3
+	"else
+		"setlocal conceallevel=0
+	"endif
+"endfunction
+
+"nnoremap <silent> <C-y> :call ToggleConcealLevel()<CR>
+
+
+
+" return to the last line editied when reopening a file
+augroup line_return
+    au!
+    au bufreadpost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup end
+
+
+
+
+
+
+
+
+
 
 " =============================================================================
 " - EOF - EOF - EOF - EOF - EOF - EOF - EOF - EOF - EOF - EOF - EOF - EOF -

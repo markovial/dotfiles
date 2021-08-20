@@ -2,11 +2,15 @@
 
 # general aliases
 
-alias ls='ls --color=auto --group-directories-first -lX'
-alias ll='ls -lAX'
+alias ls='ls --color=auto --group-directories-first'
+alias ll='ls -lFAX'
+alias lt='ls -lgGFAX --human-readable'
 alias mkdir='mkdir -p'
 alias grep='grep --color=auto'
 alias xrs='xrdb ~/.Xresources'
+alias open='xdg-open'
+
+
 #alias music='ncmpcpp'
 
 # Colorize commands when possible.
@@ -26,7 +30,7 @@ alias c-ranger='vim ~/.config/ranger/rifle.conf'
 alias c-rofi='vim ~/.config/rofi/config'
 alias c-htop='vim ~/.config/htop/htoprc'
 alias c-xrs='vim ~/.Xresources'
-alias c-compton='vim ~/.config/compton/compton.config'
+alias c-compton='vim ~/.config/compton/compton.conf'
 alias c-mutt='vim ~/.config/mutt/muttrc'
 alias c-ncmpcpp='vim ~/.config/ncmpcpp/config'
 alias c-cava='vim ~/.config/cava/config'
@@ -34,6 +38,7 @@ alias c-dunst='vim ~/.config/dunst/dunstrc'
 alias c-firefox='cd ~/.mozilla/firefox/ho69m9le.default-release/chrome/'
 alias c-cava='vim ~/.config/cava/cava'
 alias c-alacritty='vim ~/.config/alacritty/alacritty.yml'
+
 
 # Editor based aliases
 
@@ -70,10 +75,9 @@ export -f yt-ch
 
 # surfin through the terminal POG
 alias ddg='sr -browser=w3m duckduckgo'
-alias ddgf='sr -browser=firefox duckduckgo'
 alias wiki='sr -browser=w3m wikipedia'
-alias dict='sr -browser=firefox leodict'
-alias yt='sr -browser=firefox youtube'
+alias dict='cd ~/Scripts/perl/german_dict/ ; perl wörterbuch.pl'
+
 alias weather='curl wttr.in'
 
 

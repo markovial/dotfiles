@@ -8,7 +8,7 @@ snippet sec "create section"
 \section{${1:SECTION NAME}}
 \label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
 \parindent=0em
-\lettrine[lines=3, findent=3pt, nindent=0pt]{T}{his} 
+
 
 \sectionend
 % }}} END SECTION : $2
@@ -17,6 +17,7 @@ snippet ssec "create subsection"
 % 	SUB-SECTION : $2 {{{
 \subsection{${1:SUB-SECTION NAME}}
 \label{ssec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+\parindent=0em
 
 
 \subsectionend
@@ -26,6 +27,7 @@ snippet sssec "create subsubsection"
 % 		SUB-SUB-SECTION : $2 {{{
 \subsubsection{${1:SUB-SUB-SECTION NAME}}
 \label{sssec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}
+\parindent=0em
 
 $0
 
@@ -176,13 +178,30 @@ snippet vgdq "visually insert german style double quotation marks"
 ,,${1:${VISUAL:text}}\`\`
 endsnippet
 
-snippet imagewrap "insert an image right with wrap text"
-\begin{wrapfigure}{R}{0.4\textwidth}
+snippet wrapfig "insert an image right with wrap text"
+% [number of narrow lines]{placement}[overhang]{width}
+\begin{wrapfigure}[12]{R}[0pt]{0.25\textwidth}
 	\centering
-	\rule{5cm}{5cm}
-	%\includegraphics[width=0.25\textwidth]{${1:image_name}}
-	\caption{\label{fig:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}caption}
+	%\rule{5cm}{5cm}
+	\includegraphics[width=0.25\textwidth]{${1:placeholder.jpg}}
+	\caption*{\label{fig:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}caption
+	\footnotemark}
 \end{wrapfigure}
+\footnotetext{\url{
+https://en.wikipedia.org/
+}}
+endsnippet
+snippet imagewrap "insert an image right with wrap text"
+% [number of narrow lines]{placement}[overhang]{width}
+\begin{wrapfigure}[12]{R}[0pt]{0.25\textwidth}
+	\centering
+	%\rule{5cm}{5cm}
+	\includegraphics[width=0.25\textwidth]{${1:placeholder.jpg}}
+	\caption*{\label{fig:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g}}}caption \footnotemark}
+\end{wrapfigure}
+\footnotetext{\url{
+https://en.wikipedia.org/
+}}
 endsnippet
 
 snippet tabularx "insert a tabularx (width align) table"
@@ -213,10 +232,26 @@ snippet xtabular "insert a xtabular (pagebreaking) table"
 
 % }}} End XTABULAR TABLE : $1
 endsnippet
+
+snippet tabular "insert a tabular table"
+
+% TABULAR TABLE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
+
+\tabulartable
+{ \columnwidth }
+{ lll }
+{
+		cell & cell \\\\
+}
+
+% }}} End TABULAR TABLE :  $1
+
+endsnippet
+
 snippet mkcell "insert makecell block"
 \makecell[l]{${1:${VISUAL:default text}}}{}
 endsnippet
-snippet widetable "inset a table that spans the entire page"
+snippet widetable "insert a table that spans the entire page"
 
 
 % PAGE-WIDE TABLE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
@@ -249,11 +284,50 @@ snippet widetable "inset a table that spans the entire page"
 
 
 endsnippet
+snippet pagewidetable "insert a table that spans the entire page"
+
+
+% PAGE-WIDE TABLE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
+
+	\pagewidetable
+	{caption}
+	{
+		p{0.25\linewidth}
+		m{0.25\linewidth}
+		b{0.25\linewidth} 
+		% p{width} : Top-aligned cells width fixed width
+		% m{width} : Middle-aligned cells width fixed width
+		% b{width} : Bottom-aligned cells with fixed width
+	}
+	{
+
+		\hline
+		X & X & X\\\\
+		X & X & X\\\\
+		X & X & X\\\\
+
+	}
+
+% }}} End PAGE-WIDE TABLE : $1
+
+
+
+
+
+
+
+endsnippet
+snippet pagewideimage "insert a image that spans the entire page"
+\begin{figure*}[ht]
+\centering
+\includegraphics[width=0.9\textwidth]{placeholder.jpg}
+\caption{Wide single column figure in a twocolumn document.}
+\end{figure*}
+endsnippet
 
 snippet colmerge "table column merged"
 \multicolumn{10}{c}{} \\\\
 endsnippet
-
 snippet rowmerge "table row merged"
 \multirow{3}{*}{ \textbf{STRECH (Hamstring)} }&
 &
@@ -261,13 +335,13 @@ snippet rowmerge "table row merged"
 &
 \\\\
 endsnippet
-
 snippet rowcolmerge "description"
 \multicolumn{2}{c}{\multirow{2}{*}{Multi-col-row}}
 endsnippet
 
-
-
+snippet footnote "Insert a footnote"
+~\footnote{$0}
+endsnippet
 snippet footurl "Insert a url as a footnote"
 ~\footnote{\url{$0}}
 endsnippet
@@ -414,9 +488,22 @@ e.g     : \textit{ EXAMPLE  } \\\\
 \textit{ \textcolor{gray}{EXAMPLE }}  \newpar
 endsnippet
 
-
-
-
+snippet eq "equation block"
+\[
+	$0
+\]
+endsnippet
+snippet veq "visual equation block"
+\[
+	${1:${VISUAL:default text}}
+\]
+endsnippet
+snippet ieq "inline equation block"
+\( $0 \)
+endsnippet
+snippet vieq "visual equation block"
+\( ${1:${VISUAL:default text}} \)
+endsnippet
 
 
 

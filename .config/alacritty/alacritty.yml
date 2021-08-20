@@ -1,0 +1,134 @@
+env:
+  # TERM variable
+  #
+  # This value is used to set the `$TERM` environment variable for
+  # each instance of Alacritty. If it is not present, alacritty will
+  # check the local terminfo database and use `alacritty` if it is
+  # available, otherwise `xterm-256color` is used.
+  TERM: xterm-256color
+
+window:
+  # Window dimensions (changes require restart)
+  #
+  # Specified in number of columns/lines, not pixels. If both are zero this
+  # setting is ignored.
+
+
+
+  # Window padding (changes require restart)
+  #
+  # Blank space added around the window in pixels. This padding is not scaled by
+  # DPI and the specified value is always added at both opposing sides.
+  padding:
+    x: 35
+    y: 35
+
+  # Window title
+  title: Alacritty
+
+  # Window class (Linux/BSD only):
+  class:
+    # Application instance name
+    instance: Alacritty
+    # General application class
+    general: Alacritty
+
+    scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 5000
+
+
+font:
+  size: 14
+  thin_strokes: true
+  antialias: lcd # Can have values like lcd, lcdv, gray, and none
+  hinting: true
+  style: Regular
+  offset:
+    x: 0
+    y: 0
+
+  normal:
+    family: Source Code Pro
+    style: Regular
+
+  bold:
+    family: Source Code Pro
+    style: Bold
+
+  italic:
+    family: Source Code Pro
+    style: Italic
+
+  bold_italic:
+    family: Source Code Pro
+    style: Bold Italic
+
+  size: 12
+# Colors (Monokai Dark)
+colors:
+  # Default colors
+  primary:
+    background: '#181616'
+    foreground: '#E8EDF0'
+
+  # Normal colors
+  normal:
+   black:   '#444444'
+   red:     '#CC0000'
+   green:   '#73D216'
+   yellow:  '#FF7E00'
+   blue:    '#00ACC1'
+   magenta: '#AE81FF'
+   cyan:    '#A1EFE4'
+   white:   '#E8EDF0'
+
+  # Bright colors
+  bright:
+   black:   '#444444'
+   red:     '#CC0000'
+   green:   '#73D216'
+   yellow:  '#FF7E00'
+   blue:    '#00ACC1'
+   magenta: '#AE81FF'
+   cyan:    '#A1EFE4'
+   white:   '#E8EDF0'
+
+
+# Background opacity
+#
+# Window opacity as a floating point number from `0.0` to `1.0`.
+# The value `0.0` is completely transparent and `1.0` is opaque.
+background_opacity: 1.0
+#background_opacity: 0.90
+#
+#
+# Bindings are always filled by default, but will be replaced when a new
+# binding with the same triggers is defined. To unset a default binding, it can
+# be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
+# a no-op if you do not wish to receive input characters for that binding.
+key_bindings:
+    # (Windows, Linux, and BSD only)
+  - { key: V,        mods: Control|Shift, action: Paste            }
+  - { key: C,        mods: Control|Shift, action: Copy             }
+  - { key: Insert,   mods: Shift,         action: PasteSelection   }
+  - { key: Key0,     mods: Control,       action: ResetFontSize    }
+  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
+    # the following are commented cause Add and Subtract were throwing errors
+    # after an update, and i had other stuff to do before fixing it if you are
+    # reading this and it is still not fixed then i probably forgot.
+    # - { key: Add,      mods: Control,       action: IncreaseFontSize }
+    # - { key: Subtract, mods: Control,       action: DecreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+
+  - { key: Paste,                    action: Paste                            }
+  - { key: Copy,                     action: Copy                             }
+  - { key: L,         mods: Control, action: ClearLogNotice                   }
+  - { key: L,         mods: Control, chars: "\x0c"                            }
+  - { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
+  - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
+  - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
+  - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
+
+
