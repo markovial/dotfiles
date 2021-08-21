@@ -20,8 +20,9 @@ set $cur_most_edited ~/Documents/latex/tech_stuff/ai/Coursera_ML_Basics/document
 set $quick_notes ~/Documents/stuff.txt
 
 
-#set $wallpaper --bg-fill /home/ishan/Images/Wallpapers/181616_blank.png
-set $wallpaper --bg-fill /home/ishan/Downloads/roman-roland-kuteynikov-biblioteca2.jpg
+set $wallpaper --bg-fill /home/markov/Images/wallpaper.jpg
+
+
 
 
 
@@ -88,33 +89,33 @@ exec_always --no-startup-id xmodmap -e "keycode 66=Escape"
 exec --no-startup-id pkill picom ; picom
 
 # apply wallpaper
-exec_always --no-startup-id feh $wallpaper
+#exec_always --no-startup-id feh $wallpaper
 
 # run autokey
 # i now run it only when I need to type german
 #exec --no-startup-id autokey-gtk
 
 # run network manager applet
-exec_always --no-startup-id nm-applet
+#exec_always --no-startup-id nm-applet
 
 # run vpn
-exec /opt/piavpn/bin/pia-client
-exec_always --no-startup-id piactl background enable ; piactl connect
+#exec /opt/piavpn/bin/pia-client
+#exec_always --no-startup-id piactl background enable ; piactl connect
 
 # run music player daemon (mpd)
-exec --no-startup-id mpd
+#exec --no-startup-id mpd
 
 # run / refresh notification daemon
-exec_always --no-startup-id pkill dunst ; dunst
+#exec_always --no-startup-id pkill dunst ; dunst
 
 # start up bluetooth
-exec --no-startup-id $terminal -e $bluetooth_manager power on
+#exec --no-startup-id $terminal -e $bluetooth_manager power on
 
 # https://pypi.org/project/flashfocus/#description
-exec_always --no-startup-id flashfocus
+#exec_always --no-startup-id flashfocus
 
 # multi display setup
-exec arandr
+#exec arandr
 #exec autorandr -c
 
 # run / refresh status bar
@@ -134,10 +135,10 @@ for_window [class="^.*"] border pixel 0
 #smart_borders on
 
 # gaps between windows
-gaps inner 30
+gaps inner 25
 
 # gaps from screen to window
-gaps outer 5
+gaps outer 1
 
 
 # get colors from xresources file
@@ -204,6 +205,7 @@ bindsym $mod+Shift+m exec --no-startup-id $terminal -e tilda > /dev/null 2>&1
 bindsym $mod+b       exec $internet_browser
 bindsym $mod+Shift+b exec --no-startup-id $terminal -e $bluetooth_manager
 bindsym $mod+d       exec --no-startup-id rofi -show drun -theme rofi_theme
+
 
 bindsym $mod+q       kill
 

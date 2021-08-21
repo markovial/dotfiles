@@ -30,5 +30,5 @@ fi
 
 # run navi
 # default is ctrl+g
-source <(echo "$(navi widget bash)")
+#source <(echo "$(navi widget bash)")
 

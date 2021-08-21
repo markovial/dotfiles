@@ -1,0 +1,44 @@
+# run : bash ~/Git/symlink_commands.txt
+
+mkdir ~/.config/alacritty
+mkdir ~/.config/cava
+mkdir ~/.config/compton
+mkdir ~/.config/dunst
+mkdir ~/.config/i3
+mkdir ~/.config/mpd
+mkdir ~/.config/ncmpcpp
+mkdir ~/.config/nvim
+mkdir ~/.config/nvim/UltiSnips
+mkdir ~/.config/polybar
+mkdir ~/.config/ranger
+mkdir ~/.config/rofi
+mkdir ~/.vim/colors
+
+ln -S ~/Git/dotfiles/.config/alacritty/alacritty            ~/.config/alacritty.yml
+ln -S ~/Git/dotfiles/.config/cava/config                    ~/.config/cava/config
+ln -S ~/Git/dotfiles/.config/compton/compton.conf           ~/.config/compton/compton.conf
+ln -S ~/Git/dotfiles/.config/dunst/dunstrc                  ~/.config/dunst/dunstrc
+ln -S ~/Git/dotfiles/.config/i3/config                      ~/.config/i3/config
+ln -S ~/Git/dotfiles/.config/mpd/mpd.conf                   ~/.config/mpd.conf
+ln -S ~/Git/dotfiles/.config/ncmpcpp/bindings               ~/.config/ncmpcpp/bindings
+ln -S ~/Git/dotfiles/.config/ncmpcpp/config                 ~/.config/ncmpcpp/config
+ln -S ~/Git/dotfiles/.config/nvim/init.vim                  ~/.config/nvim/init.vim
+ln -S ~/Git/dotfiles/.config/nvim/UltiSnips/html.snippets   ~/.config/nvim/UltiSnips/html.snippets
+ln -S ~/Git/dotfiles/.config/nvim/UltiSnips/python.snippets ~/.config/nvim/UltiSnips/python.snippets
+ln -S ~/Git/dotfiles/.config/nvim/UltiSnips/scss.snippets   ~/.config/nvim/UltiSnips/scss.snippets
+ln -S ~/Git/dotfiles/.config/nvim/UltiSnips/tex.snippets    ~/.config/nvim/UltiSnips/tex.snippets
+ln -S ~/Git/dotfiles/.config/nvim/UltiSnips/text.snippets   ~/.config/nvim/UltiSnips/text.snippets
+ln -S ~/Git/dotfiles/.config/nvim/UltiSnips/txt.snippets    ~/.config/nvim/UltiSnips/txt.snippets
+ln -S ~/Git/dotfiles/.config/polybar/config                 ~/.config/polybar/config
+ln -S ~/Git/dotfiles/.config/ranger/rc.conf                 ~/.config/ranger/rc.conf
+ln -S ~/Git/dotfiles/.config/ranger/rifle.conf              ~/.config/ranger/rifle.conf
+ln -S ~/Git/dotfiles/.config/rofi/rofi_theme.rasi           ~/.config/rofi/rofi_theme.rasi
+ln -S ~/Git/dotfiles/.vimrc             ~/.vimrc
+ln -S ~/Git/dotfiles/.bash_aliases      ~/.bash_aliases
+ln -S ~/Git/dotfiles/.bash_functions    ~/.bash_functions
+ln -S ~/Git/dotfiles/.bashrc            ~/.bashrc
+ln -S ~/Git/dotfiles/.octaverc          ~/.octaverc
+ln -S ~/Git/dotfiles/.Xresources        ~/.Xresources
+ln -S ~/Git/dotfiles/youtube-dl.conf    ~/youtube-dl.conf
+ln -S ~/Git/dotfiles/colors/current.vim ~/colors/current.vim
+

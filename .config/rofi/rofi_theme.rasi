@@ -13,7 +13,7 @@ configuration {
 
 * {
 
-	font: "Cantarell 12";
+	font: "Hack-Regular 12";
 
 	background-color           : #181616;
 	text-color                 : #e8edf0;
@@ -45,8 +45,8 @@ configuration {
 	line-padding               : 2;
 	separator-style            : "none";
 	hide-scrollbar             : "true";
-	margin                     : 0;
-	padding                    : 0;
+	margin                     : 0 0 0 0;
+	padding                    : 0 0 0 0;
 }
 
 window {

@@ -82,7 +82,7 @@ call vundle#begin()
 	Plugin 'honza/vim-snippets'
 
 	" snippets extensions
-	Plugin 'SirVer/ultisnips'
+"	Plugin 'SirVer/ultisnips'
 
 	Plugin 'itchyny/lightline.vim'
 
@@ -107,7 +107,7 @@ call vundle#begin()
 	Plugin 'mhinz/vim-startify'
 
 	" Auto completion of funciton definitions
-	Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+"	Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 	" incrementally highlights search results
 "	Plugin 'haya14busa/incsearch.vim' 
