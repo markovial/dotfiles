@@ -145,10 +145,10 @@ URxvt.shading      : 18
 
 
 ! 1k Screen
-!Xft.dpi       : 96
+Xft.dpi       : 96
 !
 ! 3k Screen
-Xft.dpi       : 135
+!Xft.dpi       : 135
 Xft.antialias : true
 Xft.hinting   : full
 

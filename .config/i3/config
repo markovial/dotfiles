@@ -1,31 +1,26 @@
 # VARIABLE DECLARATIONS --------------------------------------------------- {{{
 
+
+# Mod1 = alt , Mod4 = Win
 set $mod Mod1
 
 set $terminal              alacritty
-set $file_explorer         ranger
-set $file_explorer_gui     nautilus
-set $internet_browser      tor-browser
+set $internet_browser      firefox 
 set $process_manager       glances
 set $calendar              calcurse
 set $music_player          ncmpcpp
 set $notification_manager  dunst
 set $bluetooth_manager     bluetoothctl
-
-set $shutdown sudo -A shutdown -h now
-set $reboot sudo -A reboot
-set $netrefresh --no-startup-id sudo -A systemctl restart NetworkManager
-
-set $cur_most_edited ~/Documents/latex/tech_stuff/ai/Coursera_ML_Basics/document.tex
-set $quick_notes ~/Documents/stuff.txt
+set $quick_notes ~/Documents/quick_notes.txt
+set $wallpaper --bg-fill ~/Images/wallpaper.jpg
 
 
-set $wallpaper --bg-fill /home/markov/Images/wallpaper.jpg
+#font pango:Hack-Regular 20
+font pango:Cantarell-Regular 20
 
+# }}}
 
-
-
-
+# WORKSPACE SETTINGS ------------------------------------------------------ {{{
 
 set $workspace1 "1"
 set $workspace2 "2"
@@ -40,14 +35,7 @@ set $workspace9 "9"
 #set $workspace1 ""
 #set $workspace2 ""
 #set $workspace9 ""
-
-#font pango:Hack-Regular 20
-font pango:Cantarell-Regular 20
-
-# }}}
-
-# WORKSPACE SETTINGS ------------------------------------------------------ {{{
-
+#
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
@@ -89,7 +77,7 @@ exec_always --no-startup-id xmodmap -e "keycode 66=Escape"
 exec --no-startup-id pkill picom ; picom
 
 # apply wallpaper
-#exec_always --no-startup-id feh $wallpaper
+exec_always --no-startup-id feh $wallpaper
 
 # run autokey
 # i now run it only when I need to type german
@@ -99,27 +87,27 @@ exec --no-startup-id pkill picom ; picom
 #exec_always --no-startup-id nm-applet
 
 # run vpn
-#exec /opt/piavpn/bin/pia-client
-#exec_always --no-startup-id piactl background enable ; piactl connect
+exec /opt/piavpn/bin/pia-client
+exec_always --no-startup-id piactl background enable ; piactl connect
 
 # run music player daemon (mpd)
-#exec --no-startup-id mpd
+exec --no-startup-id mpd
 
 # run / refresh notification daemon
-#exec_always --no-startup-id pkill dunst ; dunst
+exec_always --no-startup-id pkill dunst ; dunst
 
 # start up bluetooth
 #exec --no-startup-id $terminal -e $bluetooth_manager power on
 
 # https://pypi.org/project/flashfocus/#description
-#exec_always --no-startup-id flashfocus
+exec_always --no-startup-id flashfocus
 
 # multi display setup
 #exec arandr
 #exec autorandr -c
 
 # run / refresh status bar
-exec_always --no-startup-id pkill polybar ; polybar top ;
+exec_always --no-startup-id pkill polybar ; ./.config/polybar/launch.sh --colorblocks
 
 # }}}
 
@@ -135,11 +123,10 @@ for_window [class="^.*"] border pixel 0
 #smart_borders on
 
 # gaps between windows
-gaps inner 25
+gaps inner 20
 
 # gaps from screen to window
-gaps outer 1
-
+gaps outer 5
 
 # get colors from xresources file
 set_from_resource $bdr-color  color0 #000000
@@ -165,7 +152,16 @@ for_window [window_role="GtkFileChooserDialog"] move position center
 
  # }}}
 
-# MOVEMENT ---------------------------------------------------------------- {{{
+# FLOATING  --------------------------------------------------------------- {{{
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+#bindsym $mod+space focus mode_toggle
+bindsym $mod+Shift+space floating toggle
+
+# }}}
+
+# KEYBINDINGS ------------------------------------------------------------- {{{
 
 bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+Return  split toggle
@@ -195,34 +191,54 @@ bindsym $mod+Ctrl+l   resize grow   width  1 px or 1 ppt
 #bindsym $mod+o        focus up
 #bindsym $mod+p        focus right
 
-bindsym $mod+m       exec --no-startup-id $terminal -e $music_player
-bindsym $mod+i       exec --no-startup-id $terminal -e $process_manager
-bindsym $mod+c       exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null -theme rofi_theme"
-bindsym $mod+Shift+c exec --no-startup-id $terminal -e $calendar
-#bindsym $mod+w       exec --no-startup-id $terminal -e $file_explorer
-#bindsym $mod+Shift+w exec $file_explorer_gui
-bindsym $mod+Shift+m exec --no-startup-id $terminal -e tilda > /dev/null 2>&1
-bindsym $mod+b       exec $internet_browser
-bindsym $mod+Shift+b exec --no-startup-id $terminal -e $bluetooth_manager
-bindsym $mod+d       exec --no-startup-id rofi -show drun -theme rofi_theme
 
+# https://github.com/marvinkreis/rofi-file-browser-extended
+bindsym $mod+o   exec --no-startup-id rofi -show file-browser-extended -theme ~/.config/rofi/launchers/text/style_4
+
+
+
+
+bindsym $mod+m       exec --no-startup-id $terminal -e $music_player
+#bindsym $mod+Shift+m 
+#bindsym $mod+Ctrl+m 
+bindsym $mod+i       exec --no-startup-id $terminal -e $process_manager
+bindsym $mod+c       exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null -theme ~/.config/rofi/launchers/text/style_4"
+#bindsym $mod+Shift+c exec --no-startup-id $terminal -e $calendar
+bindsym $mod+Shift+c exec --no-startup-id ~/Scripts/bash/rofi_calendar.sh
+#bindsym $mod+b       exec $internet_browser
+
+
+bindsym $mod+Delete exec --no-startup-id ~/.config/polybar/colorblocks/scripts/powermenu.sh
+#bindsym $mod+Shift+Delete 
+
+bindsym $mod+b       exec --no-startup-id ~/Scripts/bash/rofi_bookmarks.sh
+bindsym $mod+Shift+b exec rofi -show keys -theme ~/.config/rofi/launchers/text/style_1
+#bindsym $mod+Ctrl+b
+
+
+
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_text
+#bindsym $mod+Shift+d
 
 bindsym $mod+q       kill
 
-bindsym $mod+t        exec --no-startup-id notify-send "  : $( date "+%R : %d/%m/%y %a %b ")"
-#bindsym $mod+p        exec notify-send "Now Playing ♫" "$(mpc current)"
+#
+bindsym $mod+w       exec --no-startup-id networkmanager_dmenu
+#/usr/sbin/rofi-bluetooth , line 302
+bindsym $mod+Shift+w exec --no-startup-id rofi-bluetooth
+bindsym $mod+s       exec --no-startup-id ~/.config/rofi/bin/applet_screenshot
+#bindsym $mod+Shift+s
 
-
-bindsym $mod+f exec --no-startup-id flash_window
-bindsym $mod+Shift+f fullscreen toggle
-
-
+bindsym $mod+f fullscreen toggle
+#bindsym $mod+Shift+f exec --no-startup-id flash_window
+#
 #bindsym $mod+Ctrl+a   gaps inner current plus  1
 #bindsym $mod+Ctrl+s   gaps inner current minus 1
 #bindsym $mod+Ctrl+d   gaps outer current plus  1
 #bindsym $mod+Ctrl+f   gaps outer current minus 1
 
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# replaced by a rofi menu
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 #bindsym $mod+h split h
 #bindsym $mod+v split v
@@ -232,61 +248,24 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i
 #bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
-
-
-# }}}
-
-# FLOATING  --------------------------------------------------------------- {{{
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
-#bindsym $mod+space focus mode_toggle
-bindsym $mod+Shift+space floating toggle
-
-# }}}
-
-# KEYBINDINGS ------------------------------------------------------------- {{{
-
 # For advancing forward/backward in an mpd song
-
 bindsym $mod+less          exec --no-startup-id mpc seek -10
 bindsym $mod+greater       exec --no-startup-id mpc seek +10
 bindsym $mod+Shift+less    exec --no-startup-id mpc prev
 bindsym $mod+Shift+greater exec --no-startup-id mpc next
+bindsym $mod+space         exec --no-startup-id mpc toggle && notify-send "  : $(mpc current)"
 
+# Backlight and volume controls
 bindsym $mod+plus          exec --no-startup-id pulsemixer --change-volume +1
 bindsym $mod+minus         exec --no-startup-id pulsemixer --change-volume -1
-
 bindsym $mod+Shift+plus          exec --no-startup-id xbacklight +10
 bindsym $mod+Shift+minus         exec --no-startup-id xbacklight -10
 
-bindsym $mod+space         exec --no-startup-id mpc toggle && notify-send "  : $(mpc current)"
+bindsym $mod+n        exec $terminal -e nvim $quick_notes
+#bindsym $mod+Shift+n  exec $terminal -e nvim $cur_most_edited
 
-
-#bindsym $mod+p exec --no-startup-id flash_window
-#bindsym $mod+p exec --no-startup-id notify-send "$(./scripts/shell/check_battery.sh)"
-
-bindsym $mod+n        exec $terminal -e vim $quick_notes
-bindsym $mod+Shift+n  exec $terminal -e vim $cur_most_edited
-
-bindsym $mod+v       exec --no-startup-id notify-send "  : $(piactl get connectionstate) ($(piactl get region)) "
-
-# connect command also reconnects
-bindsym $mod+Shift+v exec --no-startup-id piactl connect ; exec --no-startup-id notify-send "  : $(piactl get connectionstate) ($(piactl get region)) "
-
-bindsym $mod+w exec --no-startup-id nmcli networking on      ; exec --no-startup-id notify-send " Networking On "
-bindsym $mod+Shift+w exec --no-startup-id nmcli networking off ; exec --no-startup-id notify-send " Networking Off "
-
-
-# Show selection:
-bindsym $mod+Insert		exec --no-startup-id notify-send "📋 Clipboard contents:" "$(xclip -o -selection clipboard)"
-
-
-
-
-
-
-
+#Network related bindings
+#bindsym $mod+v       exec --no-startup-id notify-send "  : $(piactl get connectionstate) ($(piactl get region)) "
 
 # }}}
 

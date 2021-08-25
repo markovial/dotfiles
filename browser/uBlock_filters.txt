@@ -1,0 +1,86 @@
+! homepage - random reccomended shit
+www.youtube.com###content > .ytd-rich-section-renderer.style-scope
+
+! top search bar
+www.youtube.com###masthead
+
+! sidebar
+! www.youtube.com###contentContainer
+www.youtube.com###scrim
+www.youtube.com###guide
+www.youtube.com##ytd-mini-guide-renderer.ytd-app.style-scope
+
+! general - new / cc tag under videos
+www.youtube.com###badges
+www.youtube.com###video-badges
+
+! viewing video - reccomendations sidebar
+www.youtube.com###secondary
+!www.youtube.com###related
+
+! viewing video - comments section
+!www.youtube.com###sections
+!www.youtube.com###comments
+
+! viewing video - sentiments
+www.youtube.com###menu
+
+!www.youtube.com###container
+www.youtube.com###sentiment
+
+! viewing video - fullscreen button , miniplayer button , autoplay , next
+www.youtube.com##.ytp-button.ytp-fullscreen-button
+www.youtube.com##.ytp-button.ytp-miniplayer-button
+www.youtube.com##.ytp-button.ytp-next-button
+!www.youtube.com##.ytp-right-controls > button.ytp-button
+
+! viewing video - hashtags over title
+www.youtube.com##.ytd-video-primary-info-renderer.style-scope.super-title
+
+! viewing video - extra description attachement , e.g. xyz is a public broadcast service etc ...
+www.youtube.com###clarify-box
+
+! channel view - links to twitch , insta , amazon , etc ...
+!www.youtube.com###secondary-links
+www.youtube.com###links-holder
+
+! channel view - play all button
+www.youtube.com##.ytd-button-renderer.style-scope.yt-simple-endpoint
+
+! search results - video / channel description
+!###description
+
+! search results -channel subscription button
+www.youtube.com###subscribe-button
+
+! search results - descriptions
+www.youtube.com##.ytd-video-renderer.style-scope.metadata-snippet-container
+www.youtube.com###description > span.yt-formatted-string.style-scope
+
+! ??
+www.youtube.com##ytd-watch-next-secondary-results-renderer.ytd-watch-flexy.style-scope > .ytd-watch-next-secondary-results-renderer.style-scope
+
+
+www.dict.cc###langbar
+www.dict.cc###maincontent > .noli666
+www.dict.cc##.orangebar
+www.dict.cc##.subnav
+www.dict.cc##td.bluebar
+www.dict.cc##[href="https://contribute.dict.cc/guidelines/"]
+www.dict.cc##a[href^="https://www.dict.cc/"]:nth-of-type(3)
+
+www.dict.cc###entertexthere
+www.dict.cc###mi1
+www.dict.cc##div.aftertable:nth-of-type(9)
+www.dict.cc##h3
+www.dict.cc###maincontent > div > .noline
+www.dict.cc##td.td1:nth-of-type(1)
+www.dict.cc##div.aftertable:nth-of-type(4)
+www.dict.cc##td.td1:nth-of-type(2)
+www.dict.cc##table:nth-of-type(4)
+www.dict.cc##.noli666 > .notranslate
+www.dict.cc##.noli666 > .inp2
+www.dict.cc##td > .noli666 > div
+
+
+

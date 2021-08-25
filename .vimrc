@@ -82,7 +82,7 @@ call vundle#begin()
 	Plugin 'honza/vim-snippets'
 
 	" snippets extensions
-"	Plugin 'SirVer/ultisnips'
+	Plugin 'SirVer/ultisnips'
 
 	Plugin 'itchyny/lightline.vim'
 
@@ -338,7 +338,7 @@ autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%,
 
 autocmd FileType html map <buffer> <F5> :silent update<Bar>silent !firefox %:p &<CR>
 
-" autocmd FileType markdown map <buffer> <F5> :silent update<Bar>silent !firefox %:p &<CR>
+autocmd FileType markdown map <buffer> <F5> :silent update<Bar>silent !firefox %:p &<CR>
 
 "autocmd FileType sh map <buffer> <F5> ./%:t<CR>
 
@@ -656,15 +656,15 @@ set equalalways
 
 " stop hiding the code and showing fancy characters
 
-"function! ToggleConcealLevel()
-	"if &conceallevel == 0
-		"setlocal conceallevel=3
-	"else
-		"setlocal conceallevel=0
-	"endif
-"endfunction
+function! ToggleConcealLevel()
+	if &conceallevel == 0
+		setlocal conceallevel=3
+	else
+		setlocal conceallevel=0
+	endif
+endfunction
 
-"nnoremap <silent> <C-y> :call ToggleConcealLevel()<CR>
+nnoremap <silent> <C-y> :call ToggleConcealLevel()<CR>
 
 
 
