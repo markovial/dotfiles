@@ -1,5 +1,5 @@
 # dotfiles
-All my dotfiles. I have tried to link all the places where I have used themes/ git repos from other dudes where it makes sense. Most of it you can just can from the AUR though. It's mainly for my own sake to remember the name of the package when I want to migrate to a new machine or something...
+All my dotfiles. I have tried to link all the places where I have used themes/ git repos from other dudes where it makes sense. Most of it you can just get from the AUR though. It's mainly for my own sake to remember the name of the package when I want to migrate to a new machine or something...
 
 ## APPLICATIONS LIST:
 ---
