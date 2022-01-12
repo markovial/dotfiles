@@ -82,7 +82,7 @@ call vundle#begin()
 	Plugin 'honza/vim-snippets'
 
 	" snippets extensions
-	Plugin 'SirVer/ultisnips'
+	"Plugin 'SirVer/ultisnips'
 
 	Plugin 'itchyny/lightline.vim'
 
@@ -601,7 +601,7 @@ colorscheme current
 filetype plugin indent on                 " ???
 :hi Normal guibg=NONE ctermbg=NONE        " make background transparent
 set colorcolumn=+1                        " highlight the 81st column
-":hi ColorColumn guibg=#262626 ctermbg=235 " color settings for 81st column highlight
+:hi ColorColumn guibg=#262626 ctermbg=235 " color settings for 81st column highlight
 
 " no scrollbars
 set guioptions-=L

@@ -1,11 +1,3 @@
-# function to make dir and switch into it in one step
-
-mcd () {
-	mkdir -p "$1";
-	cd "$1";
-}
-
-
 SAVEIFS=$IFS
 IFS="$(printf '\n\t')"
 

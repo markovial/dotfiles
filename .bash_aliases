@@ -20,7 +20,7 @@ alias \
 alias c-bash='vim ~/.bashrc'
 alias c-vim='vim ~/.vimrc'
 alias c-i3='vim ~/.config/i3/config'
-alias c-poly='vim ~/.config/polybar/config'
+alias c-poly='vim ~/.config/polybar/colorblocks/config.ini'
 alias c-ranger='vim ~/.config/ranger/rifle.conf'
 alias c-rofi='vim ~/.config/rofi/config'
 alias c-htop='vim ~/.config/htop/htoprc'
@@ -49,6 +49,8 @@ alias yt-dl='youtube-dl -f 22'
 
 # append playlist ID and not video id to following command
 alias yt-pl='youtube-dl -i'
+
+alias yt='$HOME/Scripts/bash/yt.sh'
 
 # function instead of an alias cause i wanted to grep the output in one line
 function yt-ch { youtube-dl -F "$1" | grep "best" ;}

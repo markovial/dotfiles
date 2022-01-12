@@ -12,11 +12,19 @@ set $music_player          ncmpcpp
 set $notification_manager  dunst
 set $bluetooth_manager     bluetoothctl
 set $quick_notes ~/Documents/quick_notes.txt
-set $wallpaper --bg-fill ~/Images/wallpaper.jpg
+#set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/wallpaper.jpg
+set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/blank_181616.png
+#set $wallpaper killall back4.sh ; $HOME/Scripts/bash/back4.sh 0.01 --bg-scale $HOME/Images/gif/watching_checkpoint.gif
+#set $wallpaper killall back4.sh ; $HOME/Scripts/bash/back4.sh 0.03 --bg-scale $HOME/Images/gif/irithyll.gif
+
+
 
 
 #font pango:Hack-Regular 20
 font pango:Cantarell-Regular 20
+
+
+
 
 # }}}
 
@@ -77,11 +85,12 @@ exec_always --no-startup-id xmodmap -e "keycode 66=Escape"
 exec --no-startup-id pkill picom ; picom
 
 # apply wallpaper
-exec_always --no-startup-id feh $wallpaper
+exec_always --no-startup-id $wallpaper
+
 
 # run autokey
 # i now run it only when I need to type german
-#exec --no-startup-id autokey-gtk
+exec --no-startup-id autokey-gtk
 
 # run network manager applet
 #exec_always --no-startup-id nm-applet
@@ -100,7 +109,7 @@ exec_always --no-startup-id pkill dunst ; dunst
 #exec --no-startup-id $terminal -e $bluetooth_manager power on
 
 # https://pypi.org/project/flashfocus/#description
-exec_always --no-startup-id flashfocus
+exec_always --no-startup-id pkill flashfocus ; flashfocus
 
 # multi display setup
 #exec arandr
@@ -126,7 +135,7 @@ for_window [class="^.*"] border pixel 0
 gaps inner 20
 
 # gaps from screen to window
-gaps outer 5
+gaps outer 0
 
 # get colors from xresources file
 set_from_resource $bdr-color  color0 #000000
@@ -195,16 +204,14 @@ bindsym $mod+Ctrl+l   resize grow   width  1 px or 1 ppt
 # https://github.com/marvinkreis/rofi-file-browser-extended
 bindsym $mod+o   exec --no-startup-id rofi -show file-browser-extended -theme ~/.config/rofi/launchers/text/style_4
 
-
-
-
 bindsym $mod+m       exec --no-startup-id $terminal -e $music_player
 #bindsym $mod+Shift+m 
 #bindsym $mod+Ctrl+m 
+
 bindsym $mod+i       exec --no-startup-id $terminal -e $process_manager
 bindsym $mod+c       exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null -theme ~/.config/rofi/launchers/text/style_4"
-#bindsym $mod+Shift+c exec --no-startup-id $terminal -e $calendar
-bindsym $mod+Shift+c exec --no-startup-id ~/Scripts/bash/rofi_calendar.sh
+bindsym $mod+Shift+c exec --no-startup-id $terminal -e $calendar
+#bindsym $mod+Shift+c exec --no-startup-id ~/Scripts/bash/rofi_calendar.sh
 #bindsym $mod+b       exec $internet_browser
 
 
@@ -258,14 +265,20 @@ bindsym $mod+space         exec --no-startup-id mpc toggle && notify-send "  
 # Backlight and volume controls
 bindsym $mod+plus          exec --no-startup-id pulsemixer --change-volume +1
 bindsym $mod+minus         exec --no-startup-id pulsemixer --change-volume -1
-bindsym $mod+Shift+plus          exec --no-startup-id xbacklight +10
-bindsym $mod+Shift+minus         exec --no-startup-id xbacklight -10
+bindsym $mod+Shift+plus          exec --no-startup-id xbacklight +1
+bindsym $mod+Shift+minus         exec --no-startup-id xbacklight -1
 
-bindsym $mod+n        exec $terminal -e nvim $quick_notes
-#bindsym $mod+Shift+n  exec $terminal -e nvim $cur_most_edited
+bindsym $mod+Shift+n        exec $terminal -e nvim $quick_notes
+bindsym $mod+n      exec --no-startup-id ~/Scripts/bash/rofi_notes.sh
+
 
 #Network related bindings
 #bindsym $mod+v       exec --no-startup-id notify-send "  : $(piactl get connectionstate) ($(piactl get region)) "
+
+bindsym $mod+Insert         exec --no-startup-id rofi -modi "clipboard:~/Git/roficlip/roficlip.py --show" -show clipboard
+
+#bindsym $mod+y   exec --no-startup-id "rofi -show calc $HOME/Scripts/bash/yt.sh"
+bindsym $mod+y exec --no-startup-id $terminal -e yt
 
 # }}}
 
