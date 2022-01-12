@@ -22,6 +22,10 @@ www.youtube.com###secondary
 !www.youtube.com###sections
 !www.youtube.com###comments
 
+! commenter profile pic and name
+###author-thumbnail
+##h3.ytd-comment-renderer.style-scope
+
 ! viewing video - sentiments
 www.youtube.com###menu
 
@@ -57,30 +61,15 @@ www.youtube.com###subscribe-button
 www.youtube.com##.ytd-video-renderer.style-scope.metadata-snippet-container
 www.youtube.com###description > span.yt-formatted-string.style-scope
 
+! I never log in , no need to see the leave a comment box
+www.youtube.com###simple-box > .ytd-comments-header-renderer.style-scope
+
+! Go away cookies
+www.youtube.com###lightbox > .ytd-consent-bump-v2-lightbox.style-scope
+www.youtube.com##.opened
+
 ! ??
 www.youtube.com##ytd-watch-next-secondary-results-renderer.ytd-watch-flexy.style-scope > .ytd-watch-next-secondary-results-renderer.style-scope
 
-
-www.dict.cc###langbar
-www.dict.cc###maincontent > .noli666
-www.dict.cc##.orangebar
-www.dict.cc##.subnav
-www.dict.cc##td.bluebar
-www.dict.cc##[href="https://contribute.dict.cc/guidelines/"]
-www.dict.cc##a[href^="https://www.dict.cc/"]:nth-of-type(3)
-
-www.dict.cc###entertexthere
-www.dict.cc###mi1
-www.dict.cc##div.aftertable:nth-of-type(9)
-www.dict.cc##h3
-www.dict.cc###maincontent > div > .noline
-www.dict.cc##td.td1:nth-of-type(1)
-www.dict.cc##div.aftertable:nth-of-type(4)
-www.dict.cc##td.td1:nth-of-type(2)
-www.dict.cc##table:nth-of-type(4)
-www.dict.cc##.noli666 > .notranslate
-www.dict.cc##.noli666 > .inp2
-www.dict.cc##td > .noli666 > div
-
-
-
+! https://www.youtube.com
+www.youtube.com##.ytd-popup-container.style-scope > .ytd-mealbar-promo-renderer.style-scope
