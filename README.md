@@ -33,6 +33,18 @@ package when I want to migrate to a new machine or something...
 | pdf               | evince                                                                     |
 | Bittorrent client | transmission / aria2                                                       |
 | Latex             | pdflatex                                                                   |
+https://github.com/seamus-45/roficlip
+https://github.com/tcode2k16/rofi-chrome
+https://github.com/zbaylin/rofi-wifi-menu
+https://github.com/adi1090x/rofi
+
+https://github.com/adi1090x/polybar-themes
+https://github.com/ayu-theme
+
+https://github.com/pystardust/ani-cli
+
+https://github.com/dongy7/twitch-chat-cli
+https://github.com/marklehane/command-line-twitch
 
 ## VIM PLUGINS LIST:
 (tbd)
