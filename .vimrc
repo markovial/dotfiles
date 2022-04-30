@@ -58,7 +58,7 @@ call vundle#begin()
 	Plugin 'google/vim-searchindex'
 
 	" Linter (Error checking + Warnings)
-	Plugin 'dense-analysis/ale'
+"	Plugin 'dense-analysis/ale'
 
 	" Adds language support for a whole bunch of langs
 	Plugin 'sheerun/vim-polyglot'
@@ -82,7 +82,7 @@ call vundle#begin()
 	Plugin 'honza/vim-snippets'
 
 	" snippets extensions
-	"Plugin 'SirVer/ultisnips'
+	Plugin 'SirVer/ultisnips'
 
 	Plugin 'itchyny/lightline.vim'
 
@@ -105,6 +105,9 @@ call vundle#begin()
 
 	" Shows recently edited files as vim start screen
 	Plugin 'mhinz/vim-startify'
+	
+	" Scrollbar
+	Plugin 'Xuyuanp/scrollbar.nvim'
 
 	" Auto completion of funciton definitions
 "	Plugin 'neoclide/coc.nvim', {'branch': 'release'}
@@ -307,6 +310,16 @@ let g:lightline = {
 "let g:instant_markdown_python = 1
 
 " }}}
+"     Scrollbar {{{
+
+"augroup ScrollbarInit
+  "autocmd!
+  "autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
+  "autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+  "autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
+"augroup end
+
+" }}}
 
 
 let g:highlightedyank_highlight_duration = 200
@@ -335,6 +348,8 @@ map <silent> <C-t> :Tab/
 autocmd FileType tex map <buffer> <F5> :LLPStartPreview <CR>
 
 autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
+" autocmd FileType octave map <buffer> <F5> :w<CR>:exec octave %:r %:t<CR>
 
 autocmd FileType html map <buffer> <F5> :silent update<Bar>silent !firefox %:p &<CR>
 

@@ -206,6 +206,8 @@ endsnippet
 
 snippet tabularx "insert a tabularx (width align) table"
 
+% !! NOTE !! : The package for this file is not included , because it was causing issues.
+
 % TABULARX TABLE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
 
 \tabularxtable
@@ -236,10 +238,23 @@ endsnippet
 snippet tabular "insert a tabular table"
 
 % TABULAR TABLE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
+\begin{tabular}{c c c}
+    A & B & C \\
+    D & E & F \\
+    G & H & I \\
+\end{tabular}
 
+% }}} End TABULAR TABLE :  $1
+
+endsnippet
+snippet tabular* "insert a tabular* table"
+
+% TABULAR TABLE : ${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/g} {{{
+% top align , b for bot , default center
 \tabulartable
 { \columnwidth }
-{ lll }
+{ t }
+{ ll }
 {
 		cell & cell \\\\
 }

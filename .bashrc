@@ -32,3 +32,4 @@ fi
 # default is ctrl+g
 #source <(echo "$(navi widget bash)")
 
+PATH=$PATH:/usr/sbin:/sbin
