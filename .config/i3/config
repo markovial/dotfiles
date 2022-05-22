@@ -11,7 +11,7 @@ set $calendar              calcurse
 set $music_player          ncmpcpp
 set $notification_manager  dunst
 set $bluetooth_manager     bluetoothctl
-set $quick_notes ~/Documents/quick_notes.txt
+set $quick_notes ~/Documents/notes/quick_notes.txt
 
 #set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/goku_fit_as_fuck_boiiii_181616.jpg
 set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/wallpaper.jpg

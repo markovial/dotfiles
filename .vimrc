@@ -21,6 +21,9 @@ call vundle#begin()
 	" Makes NerdTree Prettier
 	Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+	" Highlight open files in nerdtree
+	Plugin 'PhilRunninger/nerdtree-buffer-ops'
+
 	" Adds glyphs to make vim prettier
 	Plugin 'ryanoasis/vim-devicons'
 
@@ -60,10 +63,10 @@ call vundle#begin()
 	" Linter (Error checking + Warnings)
 "	Plugin 'dense-analysis/ale'
 
-	" Adds language support for a whole bunch of langs
+	" multiple languages support
 	Plugin 'sheerun/vim-polyglot'
 
-	" Adds octave language support
+	" octave support
 	Plugin 'McSinyx/vim-octave.git'
 
 	" Adds syntax Highlighting for i3 config file
@@ -102,7 +105,10 @@ call vundle#begin()
 
 	" Fuzzy find files and commands
 	Plugin 'junegunn/fzf.vim'
-
+	
+	" changes the working directory to the project root when you open a file or directory
+	Plugin 'airblade/vim-rooter'
+	
 	" Shows recently edited files as vim start screen
 	Plugin 'mhinz/vim-startify'
 	
@@ -121,12 +127,6 @@ call vundle#begin()
 	" Linter (Error checking + Warnings)
 "	Plugin 'scrooloose/syntastic'
 
-	" Dims non focused paragraphs
-"	Plugin 'junegunn/limelight.vim'
-
-	" highlight alternating indentation
-"	Plugin 'nathanaelkane/vim-indent-guides'
-
 	" Makes current line pulse when you search
 "	Plugin 'inside/vim-search-pulse'
 
@@ -134,7 +134,8 @@ call vundle#begin()
 "	Plugin 'junegunn/goyo.vim'
 
 	" Fuzzy finding files , altern to NerdTree
-"	Plugin 'ctrlpvim/ctrlp.vim'
+	" fzf is better imho
+	" Plugin 'ctrlpvim/ctrlp.vim'
 
 "	Plugin 'powerline/powerline'
 "	Plugin 'bling/vim-airline'
@@ -190,15 +191,14 @@ let g:indentLine_char = '┊'
 " }}}
 " 	NerdTree settings                                                   {{{
 
+" https://github.com/preservim/nerdtree
+
 "let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeShowHidden=0
 
-"Automatically open NerdTree when opening a file in vim
-" autocmd vimenter * NERDTree
-
-"Auto close vim if only thing left open is NerdTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " }}}
 "     CtrlP Settings                                                      {{{
@@ -312,12 +312,12 @@ let g:lightline = {
 " }}}
 "     Scrollbar {{{
 
-"augroup ScrollbarInit
-  "autocmd!
-  "autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
-  "autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
-  "autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
-"augroup end
+augroup ScrollbarInit
+  autocmd!
+  autocmd WinScrolled,VimResized,QuitPre * silent! lua require('scrollbar').show()
+  autocmd WinEnter,FocusGained           * silent! lua require('scrollbar').show()
+  autocmd WinLeave,BufLeave,BufWinLeave,FocusLost            * silent! lua require('scrollbar').clear()
+augroup end
 
 " }}}
 
@@ -326,8 +326,6 @@ let g:highlightedyank_highlight_duration = 200
 
 " highlighted yank colors (must be after set colorscheme)
 highlight HighlightedyankRegion cterm=reverse gui=reverse
-
-
 
 " }}}
 
@@ -445,19 +443,24 @@ nnoremap <C-c> "+y
 "}}}
 "     Visual Mode Mappings {{{
 
-" search for currently highlighted text
-vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
-
 vnoremap <C-c> "+y
 
 " copy to both registers * and +
-" cause you dont know which one the cur program uses and binding should always work
+" I dont know which one the cur program uses and binding should always work
 vnoremap <C-C> "*y :let @+=@*<CR>
 
 "map <C-v> "+P
 
 " to use . command over visual lines
 vnoremap . :normal .<CR>
+
+" search for currently highlighted text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+" search / replace visually highlighted text
+vnoremap <C-R> "hy:%s/<C-r>h//gc<left><left><left>
+
+
 " }}}
 " }}}
 

@@ -32,4 +32,15 @@ fi
 # default is ctrl+g
 #source <(echo "$(navi widget bash)")
 
+
 PATH=$PATH:/usr/sbin:/sbin
+# what to add to path
+#NPATH="$HOME/.local/bin"
+
+## add it only if required
+#case ":${PATH}:" in
+  #*:${NPATH}:*) ;;
+  #*) PATH=${PATH}:$NPATH ;;
+#esac
+
+export PATH

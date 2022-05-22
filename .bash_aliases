@@ -42,10 +42,10 @@ alias vi='vim'
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
 # External package aliases
-alias yt-mp3='youtube-dl --ignore-errors --extract-audio --audio-format mp3'
-#alias yt-ch='youtube-dl -F'
+alias yt-mp3='youtube-dl --ignore-errors --geo-bypass --extract-audio --audio-format mp3'
+alias yt-ch='youtube-dl --list-formats'
 
-alias yt-dl='youtube-dl -f 22'
+alias yt-dl='youtube-dl --geo-bypass -f 22'
 
 # append playlist ID and not video id to following command
 alias yt-pl='youtube-dl -i'
