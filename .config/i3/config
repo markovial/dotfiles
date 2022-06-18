@@ -276,7 +276,7 @@ bindsym $mod+n      exec --no-startup-id ~/Scripts/bash/rofi_notes.sh
 
 
 #Network related bindings
-#bindsym $mod+v       exec --no-startup-id notify-send "  : $(piactl get connectionstate) ($(piactl get region)) "
+bindsym $mod+v       exec --no-startup-id notify-send "  : $(piactl get connectionstate) ($(piactl get region)) "
 
 #bindsym $mod+Insert         exec --no-startup-id rofi -modi "clipboard:~/Git/roficlip/roficlip.py --show" -show clipboard
 
