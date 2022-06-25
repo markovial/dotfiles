@@ -145,7 +145,7 @@ URxvt.shading      : 18
 
 
 ! 1k Screen
-Xft.dpi       : 96
+Xft.dpi       : 95
 !
 ! 3k Screen
 !Xft.dpi       : 150

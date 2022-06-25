@@ -302,40 +302,37 @@ highlight HighlightedyankRegion cterm=reverse gui=reverse
 
 " MAPPINGS   : Plugins ---------------------------------------------------- {{{
 
+" <F1> is help menu
+
 map <silent> <F2> <ESC>:NERDTreeToggle<CR>
+map <silent> <F3> <ESC>:Vista!!<CR>
+
+map <C-t> :Tab/
 
 " auto switch to window on toggle open / close
 autocmd VimEnter * wincmd w
 
-map <silent> <F3> <ESC>:Vista!!<CR>
-map <silent> <C-t> :Tab/
 
 
 " }}}
 " MAPPINGS   : Compilation / Interpretation {{{
 
-autocmd FileType tex map <buffer> <F5> :LLPStartPreview <CR>
 
-autocmd FileType python map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+" :w<CR> with spaces causes bugs , do not change
+autocmd FileType tex      map <buffer> <F5> :w<CR>:LLPStartPreview                         <CR>
+autocmd FileType python   map <buffer> <F5> :w<CR>:exec '!python3' shellescape(@%, 1)      <CR>
+autocmd FileType html     map <buffer> <F5> :w<CR>:silent update<Bar>silent !firefox %:p & <CR>
+autocmd FileType markdown map <buffer> <F5> :w<CR>:silent update<Bar>silent !firefox %:p & <CR>
+autocmd FileType c        map <buffer> <F5> :w<CR>:!gcc -o %:r %:t                         <CR>
+autocmd FileType cpp      map <buffer> <F5> :w<CR>:!g++ -o %:r %:t                         <CR>
+autocmd FileType sh       map <buffer> <F5> :w<CR>./%:t                                    <CR>
 
-" autocmd FileType octave map <buffer> <F5> :w<CR>:exec octave %:r %:t<CR>
-
-autocmd FileType html map <buffer> <F5> :silent update<Bar>silent !firefox %:p &<CR>
-
-autocmd FileType markdown map <buffer> <F5> :silent update<Bar>silent !firefox %:p &<CR>
-
-"autocmd FileType sh map <buffer> <F5> ./%:t<CR>
-
-" second commented command compiles and runs , but does not allow for input , so
+" c second commented command compiles and runs , but does not allow for input , so
 " is not really that useful for bigger programs , for short scripts sure
-autocmd FileType c map <buffer> <F5> :!gcc -o %:r %:t<CR>
-"autocmd FileType c map <buffer> <F5> :!gcc -o %:r % && ./%:r<CR>
-
-autocmd FileType cpp map <buffer> <F5> :!g++ -o %:r %:t<CR>
-"autocmd FileType cpp map <buffer> <F5> :!g++ -o %:r % && ./%:r<CR>
-
-"autocmd FileType cs map <buffer> <F5> <CR>
-
+"autocmd FileType c      map <buffer> <F5> :!gcc -o %:r % && ./%:r<CR>
+"autocmd FileType cpp    map <buffer> <F5> :!g++ -o %:r % && ./%:r<CR>
+"autocmd FileType cs     map <buffer> <F5> <CR>
+"autocmd FileType octave map <buffer> <F5> :w<CR>:exec octave %:r %:t<CR>
 
 " }}}
 " MAPPINGS   : Convinience ------------------------------------------------ {{{
@@ -343,8 +340,10 @@ autocmd FileType cpp map <buffer> <F5> :!g++ -o %:r %:t<CR>
 " 	Normal Mode mappings                                                  {{{
 
 " Spell check
-nnoremap <F9> <ESC>:setlocal spell! spelllang=en_us<CR>
-nnoremap <F10> <ESC>:setlocal spell! spelllang=de<CR>
+nnoremap <F9>  <ESC>:setlocal spell! spelllang=en_us <CR>
+nnoremap <F10> <ESC>:setlocal spell! spelllang=de    <CR>
+nnoremap <F12> <ESC>:set hlsearch!                   <CR>
+
 
 " resize splits
 "nnoremap <C-j> <ESC>:vertical resize +5<CR>
