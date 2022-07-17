@@ -14,8 +14,8 @@ set $bluetooth_manager     bluetoothctl
 set $quick_notes ~/Documents/notes/quick_notes.txt
 
 
-#set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/wallpaper.jpg
-set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/blank_181616.png
+set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/wallpaper.jpg
+#set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/blank_181616.png
 #set $wallpaper killall back4.sh ; $HOME/Scripts/bash/back4.sh 0.03 --bg-scale $HOME/Images/gif/irithyll.gif
 
 
