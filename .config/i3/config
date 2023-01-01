@@ -3,6 +3,7 @@
 
 # Mod1 = alt , Mod4 = Win
 set $mod Mod1
+#set $mod Mod4
 
 set $terminal              alacritty
 set $internet_browser      firefox 
@@ -11,12 +12,14 @@ set $calendar              calcurse
 set $music_player          ncmpcpp
 set $notification_manager  dunst
 set $bluetooth_manager     bluetoothctl
+set $rss_reader            newsboat
 set $quick_notes ~/Documents/notes/quick_notes.txt
 
 
-#set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/wallpaper.jpg
-set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/blank_181616.png
-#set $wallpaper killall back4.sh ; $HOME/Scripts/bash/back4.sh 0.03 --bg-scale $HOME/Images/gif/irithyll.gif
+set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/wallpaper.jpg
+#et $wallpaper killall back4.sh ; feh --bg-fill ~/Images/wall_goku_181616.jpg
+#set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/blank_181616.png
+#set $wallpaper killall back4.sh ; $HOME/Scripts/bash/back4.sh 0.03 --bg-scale $HOME/Images/gif/pixel_art_045.gif
 
 
 
@@ -91,7 +94,7 @@ exec_always --no-startup-id $wallpaper
 
 # run autokey
 # i now run it only when I need to type german
-exec --no-startup-id autokey-gtk
+# exec --no-startup-id autokey-gtk
 
 # run network manager applet
 #exec_always --no-startup-id nm-applet
@@ -179,6 +182,8 @@ bindsym $mod+Shift+space floating toggle
 
 bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+Return  split toggle
+
+bindsym $mod+r  exec --no-startup-id $terminal -e $rss_reader
 bindsym $mod+Shift+r  restart
 
 # ----
@@ -252,7 +257,7 @@ bindsym $mod+f fullscreen toggle
 #bindsym $mod+Ctrl+f   gaps outer current minus 1
 
 # replaced by a rofi menu
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 #bindsym $mod+h split h
 #bindsym $mod+v split v

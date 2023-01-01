@@ -113,7 +113,7 @@ call vundle#begin()
 	Plugin 'mhinz/vim-startify'
 	
 	" Scrollbar
-	Plugin 'Xuyuanp/scrollbar.nvim'
+	" Plugin 'Xuyuanp/scrollbar.nvim'
 
 	" Auto completion of funciton definitions
 "	Plugin 'neoclide/coc.nvim', {'branch': 'release'}

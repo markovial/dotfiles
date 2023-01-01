@@ -22,7 +22,7 @@ alias c-vim='vim ~/.vimrc'
 alias c-i3='vim ~/.config/i3/config'
 alias c-poly='vim ~/.config/polybar/colorblocks/config.ini'
 alias c-ranger='vim ~/.config/ranger/rifle.conf'
-alias c-rofi='vim ~/.config/rofi/config'
+alias c-rofi='vim ~/.config/rofi/launchers/text/style_4'
 alias c-htop='vim ~/.config/htop/htoprc'
 alias c-xrs='vim ~/.Xresources'
 alias c-compton='vim ~/.config/compton/compton.conf'
@@ -33,6 +33,8 @@ alias c-dunst='vim ~/.config/dunst/dunstrc'
 alias c-firefox='cd ~/.mozilla/firefox/bz9srtah.default-release/chrome/'
 alias c-cava='vim ~/.config/cava/cava'
 alias c-alacritty='vim ~/.config/alacritty/alacritty.yml'
+alias c-newsboat='vim ~/.config/newsboat/config'
+
 
 # Editor based aliases
 
