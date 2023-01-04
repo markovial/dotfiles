@@ -61,57 +61,6 @@ Alias : [simple login](https://github.com/simple-login)
 [rofi-clipboard    ](https://github.com/seamus-45/roficlip),
 [rofi-finder       ](https://github.com/davatorium/rofi-scripts/tree/master/rofi-finder),
 
-
-
-
-## APPLICATIONS LIST:
----
-
-|                   |                                                                                                  |
-| -------------     | :-------------                                                                                  |
-| Window Manager    | [i3-gaps                           ](https://github.com/Airblader/i3)                           |
-| Lock Screen       | [lightdm                           ](https://github.com/canonical/lightdm)                      |
-| Editor            | [nvim                              ](https://neovim.io/)                                        |
-| System Bar        | [polybar                           ](https://github.com/polybar/polybar)                        |
-|                   | [theme                             ](https://github.com/adi1090x/polybar-themes).               |
-| Launcher          | [rofi                              ](https://github.com/davatorium/rofi)                        |
-|                   | [theme                             ](https://github.com/adi1090x/rofi)                          |
-| Rofi Bluetooth    | [                                  ]()                                                          |
-| Rofi Wifi         | [                                  ]()                                                          |
-| Rofi Wifi         | [rofi-wifi-menu                    ]()                                                          |
-| Rofi File Nav     | [rofi-file-browser-extended-git    ](https://github.com/marvinkreis/rofi-file-browser-extended) |
-| Rofi System Menu  | [                                  ]()                                                          |
-| Rofi Bookmarks    | [rofi-chrome                       ](https://github.com/seamus-45/roficlip)                     |
-| File browser      | [ranger                            ](https://ranger.github.io/)                                 |
-|                   | [nautilus                          ](https://archlinux.org/packages/extra/x86_64/nautilus/)     |
-| Bluetooth         | [bluetoothctl                      ](https://manpages.org/bluetoothctl)                         |
-|                   | [rofi-bluetooth-git                ](https://github.com/nickclyde/rofi-bluetooth)               |
-|                   | [networkmanager-dmenu-bluetoothfix ]()                                                          |
-| System Monitor    | [Glances                           ](https://github.com/nicolargo/glances)                      |
-|                   | [htop                              ]()                                                          |
-| Audio             | [pulseaudio                        ](https://archlinux.org/packages/extra/x86_64/pulseaudio/)   |
-|                   | [alsa                              ](https://archlinux.org/packages/extra/x86_64/alsa-utils/)   |
-|                   | [pulsemixer                        ](https://aur.archlinux.org/packages/pulsemixer-git)         |
-| Audio Visualizer  | [Cava                              ](https://github.com/karlstav/cava)                          |
-| Screenshots       | [scrot                             ](https://archlinux.org/packages/community/x86_64/scrot/)    |
-| Other             | [ani-cli                           ](https://github.com/pystardust/ani-cli)                     |
-|                   | [command-line-twtch                ](https://github.com/marklehane/command-line-twitch)         |
-| Clipboard         | [roficlip                          ](https://github.com/seamus-45/roficlip)                     |
-| Music             | mpd / mpc / ncmpcpp                                                                              |
-| Compositor        | picom / compton                                                                                  |
-| Font              | Hack / Inconsolata                                                                               |
-| GTK               | Arc Darker / Numix / Lxappearance                                                                |
-| Web Browser       | Firefox / Tor                                                                                    |
-| video             | vlc / mplayer / mpv                                                                              |
-| pdf               | evince                                                                                           |
-| Bittorrent client | transmission / aria2                                                                             |
-| Latex             | pdflatex                                                                                         |
-
-
-
-
-
-
 ## VIM PLUGINS LIST:
 
 * [NerdTree            ](github.com/scrooloose/nerdtree)                     : File Navigation
