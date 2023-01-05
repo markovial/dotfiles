@@ -14,8 +14,8 @@ set $notification_manager  dunst
 set $bluetooth_manager     bluetoothctl
 set $rss_reader            newsboat
 set $quick_notes ~/Documents/notes/quick_notes.txt
-
-
+set $rofi_theme ~/.config/rofi/launchers/text/style_4
+#
 #set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/wallpaper.jpg
 #set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/blank_181616.png
 #set $wallpaper killall back4.sh ; $HOME/Scripts/bash/back4.sh 0.03 --bg-scale $HOME/Images/gif/pixel_art_045.gif
@@ -211,29 +211,23 @@ bindsym $mod+Ctrl+l   resize grow   width  1 px or 1 ppt
 
 
 # https://github.com/marvinkreis/rofi-file-browser-extended
-bindsym $mod+o   exec --no-startup-id rofi -show file-browser-extended -theme ~/.config/rofi/launchers/text/style_4
+bindsym $mod+o   exec --no-startup-id rofi -show file-browser-extended -theme $rofi_theme
 
 bindsym $mod+m       exec --no-startup-id $terminal -e $music_player
 #bindsym $mod+Shift+m 
 #bindsym $mod+Ctrl+m 
 
 bindsym $mod+i       exec --no-startup-id $terminal -e $process_manager
-bindsym $mod+c       exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null -theme ~/.config/rofi/launchers/text/style_4"
+bindsym $mod+c       exec --no-startup-id rofi -show calc -modi calc -no-show-match -no-sort > /dev/null -theme $rofi_theme
 bindsym $mod+Shift+c exec --no-startup-id $terminal -e $calendar
 #bindsym $mod+Shift+c exec --no-startup-id ~/Scripts/bash/rofi_calendar.sh
-
-
-
 
 bindsym $mod+Delete exec --no-startup-id ~/.config/polybar/colorblocks/scripts/powermenu.sh
 #bindsym $mod+Shift+Delete 
 
-#bindsym $mod+b    exec --no-startup-id rofi -show firefox_bookmarks -modi "firefox_bookmarks:$HOME/Scripts/bash/rofi_firefox_bookmarks.sh" -theme ~/.config/rofi/launchers/text/style_4
-bindsym $mod+b    exec --no-startup-id rofi -show firefox_bookmarks -modi "firefox_bookmarks:$HOME/Git/bash/rofi_firefox_bookmarks.sh" -theme ~/.config/rofi/launchers/text/style_4
+bindsym $mod+b    exec --no-startup-id rofi -show firefox_bookmarks -modi "firefox_bookmarks:$HOME/Git/scripts/bash/rofi_firefox_bookmarks.sh" -theme $rofi_theme
 bindsym $mod+Shift+b exec rofi -show keys -theme ~/.config/rofi/launchers/text/style_1
 #bindsym $mod+Ctrl+b
-
-
 
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/bin/launcher_text
 #bindsym $mod+Shift+d
@@ -248,8 +242,10 @@ bindsym $mod+s       exec --no-startup-id ~/.config/rofi/bin/applet_screenshot
 #bindsym $mod+Shift+s
 
 bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f exec --no-startup-id rofi  -show find -modi find:$HOME/Git/scripts/bash/rofi_finder.sh -theme $rofi_theme
+
 #bindsym $mod+Shift+f exec --no-startup-id flash_window
-#
+
 #bindsym $mod+Ctrl+a   gaps inner current plus  1
 #bindsym $mod+Ctrl+s   gaps inner current minus 1
 #bindsym $mod+Ctrl+d   gaps outer current plus  1
