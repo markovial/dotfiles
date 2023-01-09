@@ -13,6 +13,7 @@ mkdir ~/.config/nvim/UltiSnips
 mkdir ~/.config/polybar
 mkdir ~/.config/ranger
 mkdir ~/.config/rofi
+mkdir ~/.config/newsboat
 mkdir ~/.vim/colors
 
 ln -s ~/Git/dotfiles/.config/alacritty/alacritty ~/.config/alacritty/alacritty.yml
@@ -34,6 +35,7 @@ ln -s ~/Git/dotfiles/.config/polybar/config ~/.config/polybar/config
 ln -s ~/Git/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
 ln -s ~/Git/dotfiles/.config/ranger/rifle.conf ~/.config/ranger/rifle.conf
 ln -s ~/Git/dotfiles/.config/rofi/rofi_theme.rasi ~/.config/rofi/rofi_theme.rasi
+ln -s ~/Git/dotfiles/.config/newsboat/config ~/.config/newsboat/config
 ln -s ~/Git/dotfiles/.vimrc ~/.vimrc
 ln -s ~/Git/dotfiles/.bash_aliases ~/.bash_aliases
 ln -s ~/Git/dotfiles/.bash_functions ~/.bash_functions
