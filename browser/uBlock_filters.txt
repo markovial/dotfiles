@@ -73,3 +73,62 @@ www.youtube.com##ytd-watch-next-secondary-results-renderer.ytd-watch-flexy.style
 
 ! https://www.youtube.com
 www.youtube.com##.ytd-popup-container.style-scope > .ytd-mealbar-promo-renderer.style-scope
+
+
+medium.com##.c.dd.aq.dc.u.db.o.da
+medium.com##.c.ao.o.qd.qc.qb.eb.qa
+medium.com##.eu.et.es.cv.i.j.k.h.er.c.ci.eq
+medium.com##.u.ha.o
+medium.com##.cv.i.j.k.h.ag
+medium.com##.l.fb > .dz.o
+medium.com##.rl.rw.l > .dz.o
+medium.com##.c.dd.rj.ao.o.ri.rh.rg.rf > .rk.l > .dz.o
+medium.com##.c.at.as.ar.aq.ap.u.ao.o.an.am.al
+medium.com##.ee.dq.an.ed
+medium.com##.d.i.j.ih.ig.if
+medium.com##.um.ul.as.ef.ar.rj.l.uk.uj.ui
+ai-alignment.com##.l.rf > .l
+ai-alignment.com##.l.sv > .l
+ai-alignment.com##.et.es.er.cv.i.j.k.h.eq.c.ci.ep
+ai-alignment.com##.c.at.aq.dc.u.db.o.da
+ai-alignment.com##.cv.i.j.k.h.ag
+ai-alignment.com##.hu.ht.hs.k.h
+ai-alignment.com##.nn.os.l > .dy.o
+ai-alignment.com##.c.nl.nk.ao.o.nj.ni.nh.ng
+ai-alignment.com##.u.ao.o > span > .ck.cj.ci.ch.cg.ce.hp.ho.hn.ca.bd.hm.hl.hk.hj.hi.br.hg.bp.bo.b.bn
+ai-alignment.com##.l.pe.pd
+ai-alignment.com##.mc.nh.l > .dy.o
+ai-alignment.com##.l.of.oe
+ai-alignment.com##.c.ma.lz.ao.o.ly.lx.lw.lv
+ai-alignment.com##.l.ew > .dy.o
+ai-alignment.com##.od.pk.l > .dy.o
+ai-alignment.com##.sc.sb.as.ee.ar.oa.l.sa.rz.ry
+ai-alignment.com##.ef.ao.o.ag
+ai-alignment.com##.ed.dp.an.ec
+ai-alignment.com##.l.pw.pv
+ai-alignment.com##.c.at.as.ar.aq.ap.u.ao.o.an.am.al
+ai-alignment.com##.l.an
+ai-alignment.com##.oc.l > .dy.o
+ai-alignment.com##.c.ob.oa.ao.o.nz.ny.nx.nw
+deepmindsafetyresearch.medium.com##.l.tr > .l
+deepmindsafetyresearch.medium.com##.et.es.er.cv.i.j.k.h.eq.c.ci.ep
+deepmindsafetyresearch.medium.com##.af.ae.ac.ab.z.y.x.w.v > .ag
+deepmindsafetyresearch.medium.com##.c.ao.o.vk.vj.tb.ea.vi
+deepmindsafetyresearch.medium.com##.mx.of.l > .dy.o
+deepmindsafetyresearch.medium.com##.l.pl.pk.pj.pi
+deepmindsafetyresearch.medium.com##.bm.l.hs.xg
+deepmindsafetyresearch.medium.com##.o.pc
+deepmindsafetyresearch.medium.com##.c.mv.mu.ao.o.mt.ms.mr.mq > .mw.l > .dy.o
+deepmindsafetyresearch.medium.com##.hf.he.hd.k.h
+deepmindsafetyresearch.medium.com##.sk.sj.as.ee.ar.mu.l.si.sh.sg
+deepmindsafetyresearch.medium.com##.c.mv.mu.ao.o.mt.ms.mr.mq
+deepmindsafetyresearch.medium.com##.af.ae.ac.ab.z.y.x.w.v
+deepmindsafetyresearch.medium.com##.c.ng.nf.ao.o.ne.nd.nc.nb
+deepmindsafetyresearch.medium.com##.o.pp
+deepmindsafetyresearch.medium.com##.sx.sw.as.ee.ar.nf.l.sv.su.st
+deepmindsafetyresearch.medium.com##.l.py.px.pw.pv
+deepmindsafetyresearch.medium.com##.ni.os.l > .dy.o
+deepmindsafetyresearch.medium.com##.zv.wc.vu.dy.o.up.dc
+deepmindsafetyresearch.medium.com##.wd.wc.vu.dy.o.oo.dc
+deepmindsafetyresearch.medium.com##.d.gp.go.gn.gm.gl
+deepmindsafetyresearch.medium.com##.es.er.eq.cu.i.j.k.h.ep.c.ch.eo
