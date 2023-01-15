@@ -16,7 +16,7 @@ alias \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"
 
-# Config file easy access aliases
+# Config files easy access aliases
 alias c-bash='vim ~/.bashrc'
 alias c-vim='vim ~/.vimrc'
 alias c-i3='vim ~/.config/i3/config'
@@ -35,7 +35,6 @@ alias c-cava='vim ~/.config/cava/cava'
 alias c-alacritty='vim ~/.config/alacritty/alacritty.yml'
 alias c-newsboat='vim ~/.config/newsboat/config'
 
-
 # Editor based aliases
 
 alias vim='nvim'
@@ -44,21 +43,9 @@ alias vi='vim'
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
 # External package aliases
-alias yt-mp3='youtube-dl --ignore-errors --geo-bypass --extract-audio --audio-format mp3'
+
 alias yt-ch='youtube-dl --list-formats'
-
-alias yt-dl='youtube-dl --geo-bypass -f 22'
-
-# append playlist ID and not video id to following command
-alias yt-pl='youtube-dl -i'
-
-alias yt='$HOME/Scripts/bash/yt.sh'
-
-# function instead of an alias cause i wanted to grep the output in one line
-function yt-ch { youtube-dl -F "$1" | grep "best" ;}
-export -f yt-ch
-
-# surfin through the terminal POG
-alias dict='cd ~/Scripts/perl/german_dict/ ; perl wörterbuch.pl'
-
-alias weather='curl wttr.in'
+alias yt-mp3='youtube-dl --ignore-errors --geo-bypass --extract-audio --audio-format mp3'
+alias yt-dl='youtube-dl --geo-bypass -f bestvideo+bestaudio'
+alias yt-pl='youtube-dl --geo-bypass -f bestvideo+bestaudio --yes-playlist'
+alias yt-pl-mp3='youtube-dl --geo-bypass -f bestaudio --yes-playlist --extract-audio --audio-format mp3'
