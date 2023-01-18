@@ -7,7 +7,6 @@ reload-time 60
 # parallel for faster updates
 #reload-threads 100
 
-
 bind-key j down
 bind-key k up
 bind-key j next articlelist
