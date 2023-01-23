@@ -2,7 +2,6 @@
 
 # Mod1 = alt , Mod4 = Win
 set $mod Mod1
-#set $mod Mod4
 
 set $terminal              alacritty
 set $internet_browser      firefox 
@@ -19,7 +18,6 @@ set $rofi_theme ~/.config/rofi/launchers/text/style_4
 set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/blank_181616.png
 #set $wallpaper killall back4.sh ; $HOME/Scripts/bash/back4.sh 0.03 --bg-scale $HOME/Images/01/gif/pixel_art_045.gif
 
-#font pango:Hack-Regular 20
 font pango:Cantarell-Regular 20
 
 # }}}
@@ -91,13 +89,12 @@ exec_always --no-startup-id pkill dunst ; dunst
 # start up bluetooth
 #exec --no-startup-id $terminal -e $bluetooth_manager power on
 
-# i like this better than outlines
 # https://pypi.org/project/flashfocus/#description
 exec_always --no-startup-id pkill flashfocus ; flashfocus
 
-# multi display setup
+# multi display setup ,
+# i tried xrandr through rofi , didnt work cause of drivers...i think
 #exec arandr
-#exec autorandr -c
 
 # run / refresh status bar
 exec_always --no-startup-id pkill polybar ; ./.config/polybar/launch.sh --colorblocks
