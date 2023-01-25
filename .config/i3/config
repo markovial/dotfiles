@@ -16,6 +16,7 @@ set $rofi_theme ~/.config/rofi/launchers/text/style_4
 
 #set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/wall_goku_181616.jpg
 set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/blank_181616.png
+#set $wallpaper killall back4.sh ; feh --bg-fill ~/Images/wallpaper2.jpg
 #set $wallpaper killall back4.sh ; $HOME/Scripts/bash/back4.sh 0.03 --bg-scale $HOME/Images/01/gif/pixel_art_045.gif
 
 font pango:Cantarell-Regular 20
@@ -171,7 +172,7 @@ bindsym $mod+Ctrl+k        resize shrink height 1 px or 1 ppt
 bindsym $mod+Ctrl+l        resize grow   width  1 px or 1 ppt
 bindsym $mod+o             exec --no-startup-id rofi -show file-browser-extended -theme $rofi_theme
 bindsym $mod+c             exec --no-startup-id rofi -show calc -modi calc -no-show-match -no-sort > /dev/null -theme $rofi_theme
-bindsym $mod+Shift+b       exec rofi -show keys -theme ~/.config/rofi/launchers/text/style_1
+#bindsym $mod+Shift+b       exec rofi -show keys -theme ~/.config/rofi/launchers/text/style_1
 bindsym $mod+Delete        exec --no-startup-id ~/.config/polybar/colorblocks/scripts/powermenu.sh
 bindsym $mod+b             exec --no-startup-id rofi -show firefox_bookmarks -modi "firefox_bookmarks:$HOME/Git/scripts/bash/rofi_firefox_bookmarks.sh" -theme $rofi_theme
 bindsym $mod+m             exec --no-startup-id $terminal -e $music_player
@@ -195,8 +196,11 @@ bindsym $mod+plus          exec --no-startup-id pulsemixer --change-volume +1
 bindsym $mod+minus         exec --no-startup-id pulsemixer --change-volume -1
 bindsym $mod+Shift+plus    exec --no-startup-id xbacklight +1
 bindsym $mod+Shift+minus   exec --no-startup-id xbacklight -1
-bindsym $mod+n             exec --no-startup-id ~/Git/scripts/bash/rofi_notes.sh
+bindsym $mod+n             exec --no-startup-id $HOME/Git/scripts/bash/rofi_notes.sh
 bindsym $mod+Shift+n       exec $terminal -e nvim $quick_notes
+bindsym $mod+y             exec --no-startup-id ./Git/scripts/bash/youtube.sh -r
+
+
 
 #bindsym $mod+Ctrl+a   gaps inner current plus  1
 #bindsym $mod+Ctrl+s   gaps inner current minus 1
