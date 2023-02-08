@@ -38,6 +38,7 @@ ln -s ~/Git/dotfiles/.config/rofi/rofi_theme.rasi ~/.config/rofi/rofi_theme.rasi
 ln -s ~/Git/dotfiles/.config/newsboat/config ~/.config/newsboat/config
 ln -s ~/Git/dotfiles/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
 ln -s ~/Git/dotfiles/.config/gtk-4.0/settings.ini ~/.config/gtk-4.0/settings.ini
+ln -s ~/Git/dotfiles/.config/mpv/mpv.conf ~/.config/mpv/mpv.conf
 ln -s ~/Git/dotfiles/.vimrc ~/.vimrc
 ln -s ~/Git/dotfiles/.bash_aliases ~/.bash_aliases
 ln -s ~/Git/dotfiles/.bash_functions ~/.bash_functions

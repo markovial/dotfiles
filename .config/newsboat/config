@@ -36,11 +36,11 @@ color article           white  default bold
 
 browser linkhandler
 macro , open-in-browser
-macro r set browser "tuir"                    ; open-in-browser ; set browser linkhandler
-macro a set browser "tsp yt-dlp --embed-metadata -xic -f bestaudio/best" ; open-in-browser ; set browser linkhandler
-macro v set browser "setsid -f mpv --no-terminal"                        ; open-in-browser ; set browser linkhandler
-macro c set browser "echo %u | xclip -r -sel c"                          ; open-in-browser ; set browser linkhandler
-macro C set browser "youtube-viewer --comments=%u"                       ; open-in-browser ; set browser linkhandler
+macro r set browser "tuir"                                                ; open-in-browser ; set browser linkhandler
+macro a set browser "tsp yt-dlp --embed-metadata -xic -f bestaudio/best"  ; open-in-browser ; set browser linkhandler
+macro v set browser "setsid -f mpv --no-terminal apply-profile=full-hd30" ; open-in-browser ; set browser linkhandler
+macro c set browser "echo %u | xclip -r -sel c"                           ; open-in-browser ; set browser linkhandler
+macro C set browser "youtube-viewer --comments=%u"                        ; open-in-browser ; set browser linkhandler
 
 highlight all "---.*---"                              yellow
 highlight feedlist ".*(0/0))"                         black
