@@ -16,65 +16,88 @@ www.youtube.com###video-badges
 
 ! viewing video - reccomendations sidebar
 www.youtube.com###secondary
-!www.youtube.com###related
-
-! viewing video - comments section
-!www.youtube.com###sections
-!www.youtube.com###comments
-
-! commenter profile pic and name
-###author-thumbnail
-##h3.ytd-comment-renderer.style-scope
+www.youtube.com###related
 
 ! viewing video - sentiments
 www.youtube.com###menu
-
+www.youtube.com###owner-sub-count
+!www.youtube.com###description
 !www.youtube.com###container
-www.youtube.com###sentiment
+!www.youtube.com###sentiment
 
 ! viewing video - fullscreen button , miniplayer button , autoplay , next
-www.youtube.com##.ytp-button.ytp-fullscreen-button
-www.youtube.com##.ytp-button.ytp-miniplayer-button
-www.youtube.com##.ytp-button.ytp-next-button
+!www.youtube.com##.ytp-button.ytp-fullscreen-button
+!www.youtube.com##.ytp-button.ytp-miniplayer-button
+!www.youtube.com##.ytp-button.ytp-next-button
 !www.youtube.com##.ytp-right-controls > button.ytp-button
 
 ! viewing video - hashtags over title
 www.youtube.com##.ytd-video-primary-info-renderer.style-scope.super-title
 
-! viewing video - extra description attachement , e.g. xyz is a public broadcast service etc ...
+! viewing video - extra description attachment , e.g. xyz is a public broadcast service etc ...
 www.youtube.com###clarify-box
 
 ! channel view - links to twitch , insta , amazon , etc ...
 !www.youtube.com###secondary-links
-www.youtube.com###links-holder
+!www.youtube.com###links-holder
 
 ! channel view - play all button
-www.youtube.com##.ytd-button-renderer.style-scope.yt-simple-endpoint
-
-! search results - video / channel description
-!###description
+!www.youtube.com##.ytd-button-renderer.style-scope.yt-simple-endpoint
 
 ! search results -channel subscription button
 www.youtube.com###subscribe-button
 
 ! search results - descriptions
 www.youtube.com##.ytd-video-renderer.style-scope.metadata-snippet-container
-www.youtube.com###description > span.yt-formatted-string.style-scope
-
-! I never log in , no need to see the leave a comment box
-www.youtube.com###simple-box > .ytd-comments-header-renderer.style-scope
+www.youtube.com##.ytd-video-renderer.style-scope.metadata-snippet-container-one-line
+www.youtube.com##.ytd-video-renderer.style-scope > .ytd-expandable-metadata-renderer.style-scope
 
 ! Go away cookies
-www.youtube.com###lightbox > .ytd-consent-bump-v2-lightbox.style-scope
-www.youtube.com##.opened
+!www.youtube.com###lightbox > .ytd-consent-bump-v2-lightbox.style-scope
+!www.youtube.com##.opened
 
-! ??
-www.youtube.com##ytd-watch-next-secondary-results-renderer.ytd-watch-flexy.style-scope > .ytd-watch-next-secondary-results-renderer.style-scope
+! search results - Shorts Reccomendations
+!www.youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope:nth-of-type(2)
+!www.youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope:nth-of-type(1)
 
-! https://www.youtube.com
-www.youtube.com##.ytd-popup-container.style-scope > .ytd-mealbar-promo-renderer.style-scope
+! search results - People also search for Reccomendations
+!www.youtube.com##ytd-horizontal-card-list-renderer.ytd-item-section-renderer.style-scope
 
+! Comments
+www.youtube.com###comment-teaser
+www.youtube.com###super-title
+!www.youtube.com###sections
+!www.youtube.com###comments
+www.youtube.com###simple-box > .ytd-comments-header-renderer.style-scope
+www.youtube.com###header > .ytd-item-section-renderer.style-scope
+!www.youtube.com###content > .ytd-video-secondary-info-renderer.style-scope
+!www.youtube.com##ytd-expander.ytd-video-secondary-info-renderer.style-scope
+!www.youtube.com###header > .ytd-item-section-renderer.style-scope
+!www.youtube.com###comment-teaser > .ytd-watch-metadata.style-scope
+!www.youtube.com###super-title
+www.youtube.com###author-thumbnail
+www.youtube.com###header-author
+www.youtube.com###dislike-button
 
+! shorts recommendations in results page
+www.youtube.com##ytd-reel-shelf-renderer.ytd-item-section-renderer.style-scope
+
+! Member shoutout on channel page
+!www.youtube.com##.ytd-item-section-renderer.style-scope > .ytd-recognition-shelf-renderer.style-scope
+
+! channel view : I dont use these Navigation tabs
+!www.youtube.com##tp-yt-paper-tab.ytd-c4-tabbed-header-renderer.style-scope:nth-of-type(4)
+
+! ???
+www.youtube.com##tp-yt-paper-dialog.ytd-popup-container.style-scope > .ytd-popup-container.style-scope
+
+! ???
+www.youtube.com##.ytd-watch-flexy.style-scope.watch-active-metadata > ytd-metadata-row-container-renderer.ytd-watch-metadata.style-scope
+
+! ???
+www.youtube.com###toolbar
+
+! blogs and stuff
 medium.com##.c.dd.aq.dc.u.db.o.da
 medium.com##.c.ao.o.qd.qc.qb.eb.qa
 medium.com##.eu.et.es.cv.i.j.k.h.er.c.ci.eq
@@ -132,3 +155,22 @@ deepmindsafetyresearch.medium.com##.zv.wc.vu.dy.o.up.dc
 deepmindsafetyresearch.medium.com##.wd.wc.vu.dy.o.oo.dc
 deepmindsafetyresearch.medium.com##.d.gp.go.gn.gm.gl
 deepmindsafetyresearch.medium.com##.es.er.eq.cu.i.j.k.h.ep.c.ch.eo
+
+! play.typeracer.com
+play.typeracer.com##.friends
+play.typeracer.com##.createAccountPrompt
+play.typeracer.com##.statsView
+play.typeracer.com###school-edition-promo
+play.typeracer.com##.footer-cont
+play.typeracer.com##.typeracerNotifications
+play.typeracer.com##.mainViewportHolder > .sidebarBlocks
+play.typeracer.com##.signIn.promptBtn
+play.typeracer.com##.createAcct.promptBtn
+play.typeracer.com##.signUpPrompt.stat
+play.typeracer.com###tr_textHeader
+play.typeracer.com###groupLink
+play.typeracer.com##.navigation > div > .blogLink
+play.typeracer.com###pitLink
+play.typeracer.com##.TextStatsView
+play.typeracer.com##.textInfoHeader
+play.typeracer.com##.rewardPromptPopup.trPopupDialog.DialogBox
