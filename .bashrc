@@ -1,6 +1,4 @@
-#
 # ~/.bashrc
-#
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -27,6 +25,14 @@ fi
 if [ -f ~/.bash_functions ]; then
 . ~/.bash_functions
 fi
+
+# POWERLINE
+# https://wiki.archlinux.org/title/Powerline
+
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/share/powerline/bindings/bash/powerline.sh
 
 # run navi
 # default is ctrl+g
