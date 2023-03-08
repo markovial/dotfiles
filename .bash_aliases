@@ -2,7 +2,7 @@
 
 # general aliases
 
-alias ls='ls --color=auto --group-directories-first'
+alias ls='ls -l --color=auto --group-directories-first'
 alias ll='ls -lFAX'
 alias lt='ls -lgGFAX --human-readable'
 alias mkdir='mkdir -p'

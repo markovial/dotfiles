@@ -1,6 +1,7 @@
 # run : bash ~/Git/symlink_commands.txt
 
 cd
+mkdir ~/.config/powerline
 mkdir ~/.config/alacritty
 mkdir ~/.config/cava
 mkdir ~/.config/compton
@@ -16,35 +17,37 @@ mkdir ~/.config/rofi
 mkdir ~/.config/newsboat
 mkdir ~/.vim/colors
 
-ln -s ~/Git/dotfiles/.config/alacritty/alacritty ~/.config/alacritty/alacritty.yml
-ln -s ~/Git/dotfiles/.config/cava/config ~/.config/cava/config
-ln -s ~/Git/dotfiles/.config/compton/compton.conf ~/.config/compton/compton.conf
-ln -s ~/Git/dotfiles/.config/dunst/dunstrc ~/.config/dunst/dunstrc
-ln -s ~/Git/dotfiles/.config/i3/config ~/.config/i3/config
-ln -s ~/Git/dotfiles/.config/mpd/mpd.conf ~/.config/mpd/mpd.conf
-ln -s ~/Git/dotfiles/.config/ncmpcpp/bindings ~/.config/ncmpcpp/bindings
-ln -s ~/Git/dotfiles/.config/ncmpcpp/config ~/.config/ncmpcpp/config
-ln -s ~/Git/dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim
-ln -s ~/Git/dotfiles/.config/nvim/UltiSnips/html.snippets ~/.config/nvim/UltiSnips/html.snippets
+ln -s ~/Git/dotfiles/.vimrc                                 ~/.vimrc
+ln -s ~/Git/dotfiles/.bash_aliases                          ~/.bash_aliases
+ln -s ~/Git/dotfiles/.bash_functions                        ~/.bash_functions
+ln -s ~/Git/dotfiles/.bashrc                                ~/.bashrc
+ln -s ~/Git/dotfiles/.octaverc                              ~/.octaverc
+ln -s ~/Git/dotfiles/.Xresources                            ~/.Xresources
+
+ln -s ~/Git/dotfiles/.config/powerline/config.json          ~/.config/powerline/config.json
+ln -s ~/Git/dotfiles/.config/alacritty/alacritty            ~/.config/alacritty/alacritty.yml
+ln -s ~/Git/dotfiles/.config/cava/config                    ~/.config/cava/config
+ln -s ~/Git/dotfiles/.config/compton/compton.conf           ~/.config/compton/compton.conf
+ln -s ~/Git/dotfiles/.config/dunst/dunstrc                  ~/.config/dunst/dunstrc
+ln -s ~/Git/dotfiles/.config/i3/config                      ~/.config/i3/config
+ln -s ~/Git/dotfiles/.config/mpd/mpd.conf                   ~/.config/mpd/mpd.conf
+ln -s ~/Git/dotfiles/.config/ncmpcpp/bindings               ~/.config/ncmpcpp/bindings
+ln -s ~/Git/dotfiles/.config/ncmpcpp/config                 ~/.config/ncmpcpp/config
+ln -s ~/Git/dotfiles/.config/nvim/init.vim                  ~/.config/nvim/init.vim
+ln -s ~/Git/dotfiles/.config/nvim/UltiSnips/html.snippets   ~/.config/nvim/UltiSnips/html.snippets
 ln -s ~/Git/dotfiles/.config/nvim/UltiSnips/python.snippets ~/.config/nvim/UltiSnips/python.snippets
-ln -s ~/Git/dotfiles/.config/nvim/UltiSnips/scss.snippets ~/.config/nvim/UltiSnips/scss.snippets
-ln -s ~/Git/dotfiles/.config/nvim/UltiSnips/tex.snippets ~/.config/nvim/UltiSnips/tex.snippets
-ln -s ~/Git/dotfiles/.config/nvim/UltiSnips/text.snippets ~/.config/nvim/UltiSnips/text.snippets
-ln -s ~/Git/dotfiles/.config/nvim/UltiSnips/txt.snippets ~/.config/nvim/UltiSnips/txt.snippets
-ln -s ~/Git/dotfiles/.config/polybar/config ~/.config/polybar/config
-ln -s ~/Git/dotfiles/.config/ranger/rc.conf ~/.config/ranger/rc.conf
-ln -s ~/Git/dotfiles/.config/ranger/rifle.conf ~/.config/ranger/rifle.conf
-ln -s ~/Git/dotfiles/.config/rofi/rofi_theme.rasi ~/.config/rofi/rofi_theme.rasi
-ln -s ~/Git/dotfiles/.config/newsboat/config ~/.config/newsboat/config
-ln -s ~/Git/dotfiles/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/settings.ini
-ln -s ~/Git/dotfiles/.config/gtk-4.0/settings.ini ~/.config/gtk-4.0/settings.ini
-ln -s ~/Git/dotfiles/.config/mpv/mpv.conf ~/.config/mpv/mpv.conf
-ln -s ~/Git/dotfiles/.vimrc ~/.vimrc
-ln -s ~/Git/dotfiles/.bash_aliases ~/.bash_aliases
-ln -s ~/Git/dotfiles/.bash_functions ~/.bash_functions
-ln -s ~/Git/dotfiles/.bashrc ~/.bashrc
-ln -s ~/Git/dotfiles/.octaverc ~/.octaverc
-ln -s ~/Git/dotfiles/.Xresources ~/.Xresources
-ln -s ~/Git/dotfiles/youtube-dl.conf ~/youtube-dl.conf
-ln -s ~/Git/dotfiles/colors/current.vim ~/colors/current.vim
+ln -s ~/Git/dotfiles/.config/nvim/UltiSnips/scss.snippets   ~/.config/nvim/UltiSnips/scss.snippets
+ln -s ~/Git/dotfiles/.config/nvim/UltiSnips/tex.snippets    ~/.config/nvim/UltiSnips/tex.snippets
+ln -s ~/Git/dotfiles/.config/nvim/UltiSnips/text.snippets   ~/.config/nvim/UltiSnips/text.snippets
+ln -s ~/Git/dotfiles/.config/nvim/UltiSnips/txt.snippets    ~/.config/nvim/UltiSnips/txt.snippets
+ln -s ~/Git/dotfiles/.config/polybar/config                 ~/.config/polybar/config
+ln -s ~/Git/dotfiles/.config/ranger/rc.conf                 ~/.config/ranger/rc.conf
+ln -s ~/Git/dotfiles/.config/ranger/rifle.conf              ~/.config/ranger/rifle.conf
+ln -s ~/Git/dotfiles/.config/rofi/rofi_theme.rasi           ~/.config/rofi/rofi_theme.rasi
+ln -s ~/Git/dotfiles/.config/newsboat/config                ~/.config/newsboat/config
+ln -s ~/Git/dotfiles/.config/gtk-3.0/settings.ini           ~/.config/gtk-3.0/settings.ini
+ln -s ~/Git/dotfiles/.config/gtk-4.0/settings.ini           ~/.config/gtk-4.0/settings.ini
+ln -s ~/Git/dotfiles/.config/mpv/mpv.conf                   ~/.config/mpv/mpv.conf
+ln -s ~/Git/dotfiles/youtube-dl.conf                        ~/youtube-dl.conf
+ln -s ~/Git/dotfiles/colors/current.vim                     ~/colors/current.vim
 

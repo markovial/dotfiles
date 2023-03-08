@@ -10,6 +10,7 @@ Window Manager : [i3-gaps ](https://github.com/Airblader/i3) ,
 Login Manager  : [lightdm ](https://github.com/canonical/lightdm) ,
 Editor : [nvim](https://github.com/neovim/neovim) ,
 Navigation : [Ranger   ](https://ranger.github.io/) ,
+Terminal Statusline : [Powerline](https://wiki.archlinux.org/title/Powerline),
 
 * System
 Network        : [NetworkManager ](https://networkmanager.dev/),
