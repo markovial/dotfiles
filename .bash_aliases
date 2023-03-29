@@ -34,6 +34,7 @@ alias c-firefox='cd ~/.mozilla/firefox/bz9srtah.default-release/chrome/'
 alias c-cava='vim ~/.config/cava/cava'
 alias c-alacritty='vim ~/.config/alacritty/alacritty.yml'
 alias c-newsboat='vim ~/.config/newsboat/config'
+alias c-mpv='vim ~/.config/mpv/mpv.conf'
 
 # Editor based aliases
 

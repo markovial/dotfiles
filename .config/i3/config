@@ -8,6 +8,7 @@ set $internet_browser      firefox
 set $process_manager       glances
 set $calendar              calcurse
 set $music_player          ncmpcpp
+set $video_player          mpv --player-operation-mode=pseudo-gui
 set $notification_manager  dunst
 set $bluetooth_manager     bluetoothctl
 set $rss_reader            newsboat
@@ -175,6 +176,7 @@ bindsym $mod+c             exec --no-startup-id rofi -show calc -modi calc -no-s
 bindsym $mod+Delete        exec --no-startup-id ~/.config/polybar/colorblocks/scripts/powermenu.sh
 bindsym $mod+b             exec --no-startup-id rofi -show firefox_bookmarks -modi "firefox_bookmarks:$HOME/Git/scripts/bash/rofi_firefox_bookmarks.sh" -theme $rofi_theme
 bindsym $mod+m             exec --no-startup-id $terminal -e $music_player
+bindsym $mod+Shift+m       exec --no-startup-id $terminal -e $video_player
 bindsym $mod+i             exec --no-startup-id $terminal -e $process_manager
 bindsym $mod+Shift+c       exec --no-startup-id $terminal -e $calendar
 bindsym $mod+d             exec --no-startup-id ~/.config/rofi/bin/launcher_text
