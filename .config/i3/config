@@ -212,4 +212,3 @@ bindsym $mod+y             exec --no-startup-id ./Git/scripts/bash/youtube.sh -r
 
 # }}}
 
-
