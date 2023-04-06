@@ -6,13 +6,12 @@
 #PS1='[\u@\h \W]\$ '
 
 # uncomment to display time on prompt
-#export PROMPT_COMMAND="echo -n \[\$(date +%H:%M:%S)\]\ "
+export PROMPT_COMMAND="echo -n \[\$(date +%H:%M:%S)\]\ "
 
 # STUFF JUST NEEDED
 
 export LC_ALL=en_US.UTF-8 
 export EDITOR=nvim
-
 
 # IMPORT ALIASES FILE
 
@@ -29,14 +28,14 @@ fi
 # POWERLINE
 # https://wiki.archlinux.org/title/Powerline
 
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /usr/share/powerline/bindings/bash/powerline.sh
+#powerline-daemon -q
+#POWERLINE_BASH_CONTINUATION=1
+#POWERLINE_BASH_SELECT=1
+#. /usr/share/powerline/bindings/bash/powerline.sh
 
 # run navi
 # default is ctrl+g
-#source <(echo "$(navi widget bash)")
+# source <(echo "$(navi widget bash)")
 
 
 PATH=$PATH:/usr/sbin:/sbin
