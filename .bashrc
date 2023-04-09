@@ -3,10 +3,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#PS1='[\u@\h \W]\$ '
-
 # uncomment to display time on prompt
-export PROMPT_COMMAND="echo -n \[\$(date +%H:%M:%S)\]\ "
+# export PROMPT_COMMAND="echo -n \[\$(date +%H:%M:%S)\]\ "
 
 # STUFF JUST NEEDED
 
