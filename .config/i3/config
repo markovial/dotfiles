@@ -200,9 +200,6 @@ bindsym $mod+Shift+minus   exec --no-startup-id xbacklight -1
 bindsym $mod+n             exec --no-startup-id $HOME/Git/scripts/bash/rofi_notes.sh
 bindsym $mod+Shift+n       exec $terminal -e nvim $quick_notes
 bindsym $mod+y             exec --no-startup-id ./Git/scripts/bash/youtube.sh -r
-
-
-
 #bindsym $mod+Ctrl+a   gaps inner current plus  1
 #bindsym $mod+Ctrl+s   gaps inner current minus 1
 #bindsym $mod+Ctrl+d   gaps outer current plus  1
