@@ -36,7 +36,9 @@ RSS         : [newsboat     ](https://github.com/newsboat/newsboat) ,
 [newsboat-youtube](https://mpv.io/),
 Screenshots : [scrot        ](https://github.com/dreamer/scrot) ,
 Torrents    : [transmission ](https://github.com/transmission/transmission) ,
-Anime       : [ani-cli      ](https://github.com/pystardust/ani-cli)
+Anime       : [ani-cli      ](https://github.com/pystardust/ani-cli),
+Emulation   : [retroarch    ](https://www.retroarch.com/)
+
 
 * Communication :
 Email Client : [neomutt](https://github.com/neomutt/neomutt) ,
