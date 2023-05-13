@@ -45,8 +45,14 @@ alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^
 
 # External package aliases
 
-alias yt-ch='youtube-dl --list-formats'
-alias yt-dl='youtube-dl -f bestvideo+bestaudio'
-alias yt-mp3='youtube-dl --extract-audio --audio-format mp3 -f bestaudio'
-alias yt-pl='youtube-dl --yes-playlist -f bestvideo+bestaudio'
-alias yt-pl-mp3='youtube-dl --extract-audio --audio-format mp3 --yes-playlist -f bestaudio'
+#alias yt-ch='youtube-dl --list-formats'
+#alias yt-dl='youtube-dl -f bestvideo+bestaudio'
+#alias yt-mp3='youtube-dl --extract-audio --audio-format mp3 -f bestaudio'
+#alias yt-pl='youtube-dl --yes-playlist -f bestvideo+bestaudio'
+#alias yt-pl-mp3='youtube-dl --extract-audio --audio-format mp3 --yes-playlist -f bestaudio'
+
+alias yt-ch='yt-dlp --list-formats'
+alias yt-dl='yt-dlp -f bestvideo+bestaudio'
+alias yt-mp3='yt-dlp --extract-audio --audio-format mp3 -f bestaudio'
+alias yt-pl='yt-dlp --yes-playlist -f bestvideo+bestaudio'
+alias yt-pl-mp3='yt-dlp --extract-audio --audio-format mp3 --yes-playlist -f bestaudio'

@@ -85,7 +85,7 @@ call vundle#begin()
 	Plugin 'honza/vim-snippets'
 
 	" snippets extensions
-	Plugin 'SirVer/ultisnips'
+	"Plugin 'SirVer/ultisnips'
 
 	Plugin 'itchyny/lightline.vim'
 
