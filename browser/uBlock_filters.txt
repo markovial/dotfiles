@@ -155,22 +155,3 @@ deepmindsafetyresearch.medium.com##.zv.wc.vu.dy.o.up.dc
 deepmindsafetyresearch.medium.com##.wd.wc.vu.dy.o.oo.dc
 deepmindsafetyresearch.medium.com##.d.gp.go.gn.gm.gl
 deepmindsafetyresearch.medium.com##.es.er.eq.cu.i.j.k.h.ep.c.ch.eo
-
-! play.typeracer.com
-play.typeracer.com##.friends
-play.typeracer.com##.createAccountPrompt
-play.typeracer.com##.statsView
-play.typeracer.com###school-edition-promo
-play.typeracer.com##.footer-cont
-play.typeracer.com##.typeracerNotifications
-play.typeracer.com##.mainViewportHolder > .sidebarBlocks
-play.typeracer.com##.signIn.promptBtn
-play.typeracer.com##.createAcct.promptBtn
-play.typeracer.com##.signUpPrompt.stat
-play.typeracer.com###tr_textHeader
-play.typeracer.com###groupLink
-play.typeracer.com##.navigation > div > .blogLink
-play.typeracer.com###pitLink
-play.typeracer.com##.TextStatsView
-play.typeracer.com##.textInfoHeader
-play.typeracer.com##.rewardPromptPopup.trPopupDialog.DialogBox
