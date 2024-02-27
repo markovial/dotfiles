@@ -1,0 +1,138 @@
+[colors.bright]
+black   = "#444444"
+blue    = "#00ACC1"
+cyan    = "#A1EFE4"
+green   = "#73D216"
+magenta = "#AE81FF"
+red     = "#CC0000"
+white   = "#E8EDF0"
+yellow  = "#FF7E00"
+
+[colors.normal]
+black   = "#444444"
+blue    = "#00ACC1"
+cyan    = "#A1EFE4"
+green   = "#73D216"
+magenta = "#AE81FF"
+red     = "#CC0000"
+white   = "#E8EDF0"
+yellow  = "#FF7E00"
+
+[colors.primary]
+background = "#181616"
+foreground = "#E8EDF0"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+#antialias    = "lcd"
+#hinting      = true
+size          = 14
+#style        = "Regular"
+#thin_strokes = true
+
+[font.bold]
+family = "Iosevka Nerd Font"
+style  = "Bold"
+
+[font.bold_italic]
+family = "Iosevka Nerd Font"
+style  = "Bold Italic"
+
+[font.italic]
+family = "Iosevka Nerd Font"
+style  = "Italic"
+
+[font.normal]
+family = "Iosevka Nerd Font"
+style  = "Regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+action = "Paste"
+key    = "V"
+mods   = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key    = "C"
+mods   = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "PasteSelection"
+key    = "Insert"
+mods   = "Shift"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key    = "Key0"
+mods   = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key    = "Equals"
+mods   = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key    = "Minus"
+mods   = "Control"
+
+[[keyboard.bindings]]
+action = "Paste"
+key    = "Paste"
+
+[[keyboard.bindings]]
+action = "Copy"
+key    = "Copy"
+
+[[keyboard.bindings]]
+action = "ClearLogNotice"
+key    = "L"
+mods   = "Control"
+
+[[keyboard.bindings]]
+chars = "\f"
+key   = "L"
+mods  = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key    = "PageUp"
+mode   = "~Alt"
+mods   = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key    = "PageDown"
+mode   = "~Alt"
+mods   = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key    = "Home"
+mode   = "~Alt"
+mods   = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key    = "End"
+mode   = "~Alt"
+mods   = "Shift"
+
+[window]
+#history = 5000
+opacity  = 1
+title    = "Alacritty"
+
+[window.class]
+general  = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 35
+y = 35
